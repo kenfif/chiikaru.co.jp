@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# トレイリングスラッシュなしURLでもアクセスできるようにする
+
+/lp/startup       /lp/startup/      301
+/lp/dx            /lp/dx/           301
+/lp/product /lp/product/ 301

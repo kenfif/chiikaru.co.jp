@@ -1,0 +1,15 @@
+# Cloudflare Pages headers
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# HTMLは短めキャッシュ（更新を反映しやすく）
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+# ルートとサブディレクトリのindex.html
+/
+  Cache-Control: public, max-age=300, must-revalidate

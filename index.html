@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小さく進めて大きく変える 合同会社 | Chiisaku Susumete Ookiku Kaeru, LLC.</title>
+<meta name="description" content="少数精鋭チームによる、戦略・開発・グロース支援。スタートアップの受託開発、中堅・老舗企業のDX推進、プロダクト運営支援まで、貴社の状況に合わせた組み方でお力になります。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --bg-soft: #F1EFE8;
+    --bg-card: #FFFFFF;
+    --ink: #0E0E0C;
+    --ink-2: #2A2A28;
+    --ink-3: #5C5C58;
+    --ink-4: #8E8E88;
+    --rule: #DCD9D0;
+    --accent: #1F4E3D;
+    --accent-deep: #133A2C;
+    --accent-soft: #E5EDE8;
+    --accent-line: #B7C9C0;
+    --max-w: 1280px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  body {
+    font-family: "IBM Plex Sans JP", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.85;
+    font-size: 15.5px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    letter-spacing: 0.01em;
+  }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  @media (max-width: 720px) {
+    .container { padding: 0 22px; }
+  }
+
+  /* ============ TOPBAR ============ */
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    position: sticky; top: 0; z-index: 100;
+    backdrop-filter: saturate(1.4) blur(8px);
+    background: rgba(250, 250, 247, 0.92);
+  }
+  .topbar-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0; gap: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-mark {
+    width: 28px; height: 28px;
+    background: var(--ink);
+    position: relative; flex-shrink: 0;
+  }
+  .brand-mark::after {
+    content: ""; position: absolute; inset: 6px;
+    background: var(--accent);
+  }
+  .brand-name {
+    font-weight: 600; font-size: 14px;
+    letter-spacing: 0.02em; line-height: 1.3;
+  }
+  .brand-name .en {
+    display: block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 11px; font-weight: 400;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+  .topbar-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink); color: var(--bg);
+    padding: 10px 18px; text-decoration: none;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: background 0.2s;
+  }
+  .topbar-cta:hover { background: var(--accent); }
+  @media (max-width: 640px) {
+    .topbar-cta { padding: 8px 14px; font-size: 12px; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 140px 0 140px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    display: flex; align-items: center; gap: 14px;
+    font-weight: 500;
+  }
+  .hero-eyebrow::before {
+    content: ""; width: 36px; height: 1px;
+    background: var(--accent);
+  }
+  .hero-title {
+    font-weight: 600;
+    font-size: clamp(38px, 6vw, 80px);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    margin-bottom: 44px;
+    color: var(--ink);
+    max-width: 1100px;
+  }
+  .hero-title .accent {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .hero-title .sub-en {
+    display: block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 300;
+    font-size: 0.3em;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+    margin-top: 24px;
+    line-height: 1.4;
+  }
+  .hero-lead {
+    font-size: 17px;
+    line-height: 2;
+    max-width: 720px;
+    color: var(--ink-2);
+  }
+  .hero-lead strong {
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1px;
+  }
+
+  /* ============ SECTION ============ */
+  section {
+    padding: 110px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (max-width: 720px) {
+    section { padding: 72px 0; }
+    .hero { padding: 80px 0 90px; }
+  }
+
+  .section-header {
+    margin-bottom: 72px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .section-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding-top: 10px;
+    border-top: 1px solid var(--accent);
+    width: 100%;
+  }
+  .section-num-label { color: var(--ink-3); margin-left: 8px; }
+  .section-title {
+    font-weight: 600;
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .section-title .en {
+    display: block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    color: var(--accent);
+    font-size: 0.4em;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 880px) {
+    .section-header { grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  /* ============ SERVICES (LP CARDS) ============ */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .service-card {
+    background: var(--bg-card);
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 48px 40px 44px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 360px;
+  }
+  .service-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--accent);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .service-card:hover {
+    background: var(--bg-soft);
+  }
+  .service-card:hover::after { width: 100%; }
+  .service-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+  .service-target {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    color: var(--ink-4);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .service-title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    margin-bottom: 16px;
+  }
+  .service-desc {
+    font-size: 14px;
+    color: var(--ink-3);
+    line-height: 1.95;
+    margin-bottom: 32px;
+    flex: 1;
+  }
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .service-link .arrow {
+    transition: transform 0.25s;
+    display: inline-block;
+  }
+  .service-card:hover .service-link {
+    color: var(--accent);
+  }
+  .service-card:hover .arrow { transform: translateX(4px); }
+  @media (max-width: 880px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============ WHAT WE DO ============ */
+  .whatwedo { background: var(--bg-soft); }
+  .whatwedo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .whatwedo-card {
+    background: var(--bg-card);
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 44px 40px;
+  }
+  .whatwedo-icon {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .whatwedo-title {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.55;
+    margin-bottom: 14px;
+    letter-spacing: -0.005em;
+  }
+  .whatwedo-desc {
+    font-size: 14px;
+    color: var(--ink-3);
+    line-height: 1.9;
+  }
+  @media (max-width: 720px) {
+    .whatwedo-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============ COMPANY ============ */
+  .company {
+    background: var(--ink);
+    color: var(--bg);
+    border-bottom: none;
+  }
+  .company .section-num { color: var(--accent-line); border-top-color: var(--accent-line); }
+  .company .section-num-label { color: rgba(250, 250, 247, 0.6); }
+  .company .section-title { color: var(--bg); }
+  .company .section-title .en { color: var(--accent-line); }
+
+  .company-statement {
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--bg);
+    max-width: 880px;
+    margin-bottom: 56px;
+    letter-spacing: -0.005em;
+  }
+  .company-statement .accent {
+    color: var(--accent-line);
+  }
+  .company-table {
+    border-top: 1px solid rgba(220, 217, 208, 0.18);
+    max-width: 800px;
+  }
+  .company-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(220, 217, 208, 0.18);
+    align-items: baseline;
+  }
+  .company-row dt {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-line);
+    font-weight: 500;
+  }
+  .company-row dd {
+    font-size: 15px;
+    color: rgba(250, 250, 247, 0.9);
+    line-height: 1.85;
+  }
+  @media (max-width: 720px) {
+    .company-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      padding: 18px 0;
+    }
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--bg);
+    padding: 56px 0 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+    border-top: 1px solid var(--rule);
+    padding-top: 40px;
+  }
+  .footer-brand-name {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+  .footer-brand-en {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+  }
+  .footer-info {
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.95;
+  }
+  .footer-meta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-4);
+    letter-spacing: 0.05em;
+    line-height: 2;
+    text-align: right;
+  }
+  @media (max-width: 720px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .footer-meta { text-align: left; }
+  }
+
+  /* ============ SCROLL REVEAL ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-name">
+        小さく進めて大きく変える 合同会社
+        <span class="en">Chiisaku Susumete Ookiku Kaeru, LLC.</span>
+      </div>
+    </div>
+    <a href="#services" class="topbar-cta">
+      サービス一覧
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow reveal">Chiisaku Susumete Ookiku Kaeru, LLC.</div>
+    <h1 class="hero-title reveal">
+      <span class="accent">小さく</span>進めて、<br>
+      <span class="accent">大きく</span>変える。
+      <span class="sub-en">Senior-only delivery, AI-augmented, end-to-end.</span>
+    </h1>
+    <p class="hero-lead reveal">
+      私たちは、<strong>PM・エンジニア・マーケターが一体となった少数精鋭の内製チーム</strong>です。
+      上場ベンチャーでプロダクトを伸ばしてきた代表と、事業売却経験を持つエンジニアが、AIをフル活用した開発スピードで貴社の事業成長に並走します。状況に応じて、戦略設計・開発・グロース・業務改善・DX推進まで、必要な領域に必要な分だけ組み込まれます。
+    </p>
+  </div>
+</section>
+
+<!-- ===== SERVICES (LP CARDS) ===== -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">01<span class="section-num-label">Services</span></div>
+      <h2 class="section-title">
+        <span class="en">Three ways we engage.</span>
+        貴社のフェーズに合わせた、<br>3つのご支援。
+      </h2>
+    </div>
+
+    <div class="services-grid reveal">
+      <a href="/lp/startup/" class="service-card">
+        <div class="service-num">CASE / 01</div>
+        <div class="service-target">For Growth-Stage Startups</div>
+        <h3 class="service-title">成長フェーズの開発を、<br>最短距離で動かす</h3>
+        <p class="service-desc">
+          メガベンチャー出身PMと、事業売却経験を持つエンジニア。少数精鋭の内製チームが、戦略設計から開発・グロースまで一気通貫で並走します。
+        </p>
+        <span class="service-link">
+          スタートアップ向けLPを見る
+          <span class="arrow">→</span>
+        </span>
+      </a>
+
+      <a href="/lp/dx/" class="service-card">
+        <div class="service-num">CASE / 02</div>
+        <div class="service-target">For Established Enterprises</div>
+        <h3 class="service-title">現場の負担を増やさず、<br>着実に進めるDX</h3>
+        <p class="service-desc">
+          業務工数50%削減の実績を持つPMが、アジャイルで小さな改善を積み重ねるアプローチでDX化を設計。中堅・老舗企業の停滞を、無理なく動かします。
+        </p>
+        <span class="service-link">
+          DX推進向けLPを見る
+          <span class="arrow">→</span>
+        </span>
+      </a>
+
+      <a href="/lp/product/" class="service-card">
+        <div class="service-num">CASE / 03</div>
+        <div class="service-target">For Mature Products</div>
+        <h3 class="service-title">開発を加速させ、<br>事業を伸ばす両方に責任を</h3>
+        <p class="service-desc">
+          AIをフル活用した開発スピードと、メガベンチャーで培ったグロースの知見。既存ベンダーとの並走から、スポット依頼、UX・マーケまでの一気通貫対応まで柔軟に。
+        </p>
+        <span class="service-link">
+          プロダクト運営向けLPを見る
+          <span class="arrow">→</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT WE DO ===== -->
+<section class="whatwedo">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">02<span class="section-num-label">What We Do</span></div>
+      <h2 class="section-title">
+        <span class="en">Four areas, one team.</span>
+        対応領域。
+      </h2>
+    </div>
+
+    <div class="whatwedo-grid reveal">
+      <div class="whatwedo-card">
+        <div class="whatwedo-icon">/ 01 — Strategy</div>
+        <h3 class="whatwedo-title">戦略・PM・新規事業</h3>
+        <p class="whatwedo-desc">
+          市場調査・要件定義・KPI設計・新規事業の0→1立ち上げまで。プロダクトオーナーの右腕として動きます。
+        </p>
+      </div>
+      <div class="whatwedo-card">
+        <div class="whatwedo-icon">/ 02 — Development</div>
+        <h3 class="whatwedo-title">AI活用型の受託開発</h3>
+        <p class="whatwedo-desc">
+          AIを開発プロセスのほぼ全工程で活用。少数精鋭でも、要件整理・実装・レビュー・テストまで一気通貫で対応します。
+        </p>
+      </div>
+      <div class="whatwedo-card">
+        <div class="whatwedo-icon">/ 03 — Growth</div>
+        <h3 class="whatwedo-title">マーケ・UX・グロース</h3>
+        <p class="whatwedo-desc">
+          開発と地続きでUX改善・コンテンツマーケ・グロースハックを設計。「作る」と「伸ばす」を分断させません。
+        </p>
+      </div>
+      <div class="whatwedo-card">
+        <div class="whatwedo-icon">/ 04 — DX</div>
+        <h3 class="whatwedo-title">業務改善・DX推進</h3>
+        <p class="whatwedo-desc">
+          現場の業務フローを丁寧にヒアリングし、アジャイルで小さな改善を積み重ねるアプローチで、業務工数の削減と定着を両立します。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPANY ===== -->
+<section class="company">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">03<span class="section-num-label">Company</span></div>
+      <h2 class="section-title">
+        <span class="en">About us.</span>
+        会社概要。
+      </h2>
+    </div>
+
+    <p class="company-statement reveal">
+      事業の<span class="accent">「小さな前進」</span>を、<br>
+      <span class="accent">「大きな変化」</span>に積み上げていく。<br>
+      それが、社名に込めた私たちの仕事の哲学です。
+    </p>
+
+    <dl class="company-table reveal">
+      <div class="company-row">
+        <dt>商号</dt>
+        <dd>小さく進めて大きく変える 合同会社<br>Chiisaku Susumete Ookiku Kaeru, LLC.</dd>
+      </div>
+      <div class="company-row">
+        <dt>代表</dt>
+        <dd>川島 健吾</dd>
+      </div>
+      <div class="company-row">
+        <dt>設立</dt>
+        <dd>2024年12月</dd>
+      </div>
+      <div class="company-row">
+        <dt>事業内容</dt>
+        <dd>IT/Webコンサルティング ／ 受託開発 ／ コンテンツマーケティング支援 ／ DX推進支援</dd>
+      </div>
+      <div class="company-row">
+        <dt>所在地</dt>
+        <dd>東京都</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">小さく進めて大きく変える 合同会社</div>
+        <div class="footer-brand-en">Chiisaku Susumete Ookiku Kaeru, LLC.</div>
+        <div class="footer-info">
+          代表：川島 健吾 ／ 設立：2024年12月<br>
+          少数精鋭チームによる、戦略・開発・グロース支援。
+        </div>
+      </div>
+      <div class="footer-meta">
+        © 2025 Chiisaku Susumete Ookiku Kaeru, LLC.<br>
+        Tokyo, Japan
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), i * 110);
+    });
+  });
+</script>
+
+</body>
+</html>

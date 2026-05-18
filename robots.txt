@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /lp/
+Allow: /
+
+# 営業LPはフォーム営業流入専用のため検索エンジンインデックスを避ける
