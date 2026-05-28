@@ -1005,23 +1005,95 @@
     font-weight: 600;
     color: var(--ink);
   }
-  .formrun-placeholder {
-    min-height: 320px;
-    border: 1.5px dashed var(--rule);
-    background: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 10px;
-    color: var(--ink-3);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    text-align: center;
-    padding: 40px;
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 22px;
   }
-  .formrun-placeholder strong {
-    color: var(--ink);
+  @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-group { margin-bottom: 22px; }
+  .form-group label {
+    display: block;
     font-size: 13px;
-    letter-spacing: 0.05em;
+    font-weight: 500;
+    color: var(--ink-2);
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
   }
+  .req { color: var(--accent); font-size: 11px; font-weight: 600; }
+  .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--rule);
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans JP", "IBM Plex Sans", sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  .form-group input::placeholder { color: var(--ink-4); }
+  .form-group input:focus { border-color: var(--accent); }
+  .form-group input.field-error { border-color: #b94a48; }
+  .form-error-msg {
+    display: none;
+    color: #b94a48;
+    font-size: 13px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .form-btn {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 16px 44px;
+    font-family: "IBM Plex Sans JP", "IBM Plex Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .form-btn:hover:not(:disabled) { background: var(--accent-deep); }
+  .form-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 16px 0 8px;
+  }
+  .form-success-check {
+    width: 54px; height: 54px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 24px;
+  }
+  .form-success-title { font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+  .form-success-body { color: var(--ink-3); font-size: 15px; line-height: 1.9; margin-bottom: 32px; }
+  .form-success-timerex {
+    background: var(--bg-soft);
+    border: 1px solid var(--rule);
+    padding: 28px 32px;
+  }
+  .form-success-timerex p { font-size: 14px; color: var(--ink-3); margin-bottom: 16px; }
+  .timerex-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+  }
+  .timerex-btn:hover { background: var(--accent-deep); }
   @media (max-width: 720px) {
     .form-wrap { padding: 32px 22px; }
   }
@@ -1585,23 +1657,18 @@
         「営業を受ける」というより、<strong>情報交換のお時間</strong>として捉えていただければ幸いです。「まず何から始めればよいか」といった段階でのご相談も歓迎しております。フィットしないと感じられた場合は、その場でお断りいただいて構いません。
       </p>
 
-      <!-- FORMRUN_EMBED_START -->
-      <!-- ▼ formrunの埋め込みコードをここに貼ってください ▼
-           例:
-           <div class="formrun-embed" data-formrun-form="@yourForm" data-formrun-redirect="true"></div>
-           <script src="https://sdk.form.run/js/v2/formrun.js"></script>
-      -->
-      <div class="formrun-placeholder">
-        <strong>[ formrun embed area ]</strong>
-        <span>ここにformrunの埋め込みコードを貼り付けてください</span>
-      </div>
-      <!-- FORMRUN_EMBED_END -->
+      <script src="https://sdk.form.run/js/v2/embed.js"></script>
+      <div
+        class="formrun-embed"
+        data-formrun-form="@chiikaru-eYSDNYZ4nNcAF7R7b4KM"
+        data-formrun-redirect="true"
+      ></div>
     </div>
 
     <div class="alt-contact">
       <strong>フォーム以外でも結構です。</strong><br>
-      日程選択は <a href="https://timerex.net/s/xxx" target="_blank" rel="noopener">timerex.net/s/xxx</a> ／
-      メールでのご連絡は <a href="mailto:aaa@aaaaa">aaa@aaaaa</a>（川島宛）までお気軽に。
+      日程選択は <a href="https://timerex.net/s/k.fifty.1110_2dd1/72e79cc3/" target="_blank" rel="noopener">timerex.net</a> ／
+      メールでのご連絡は <a href="mailto:info@chiikaru.co.jp">info@chiikaru.co.jp</a>（川島宛）までお気軽に。
     </div>
   </div>
 </section>
@@ -1646,6 +1713,7 @@
     });
   });
 </script>
+
 
 </body>
 </html>
