@@ -865,23 +865,6 @@
     font-weight: 600;
     color: var(--ink);
   }
-  .formrun-placeholder {
-    min-height: 320px;
-    border: 1.5px dashed var(--rule);
-    background: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 10px;
-    color: var(--ink-3);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    text-align: center;
-    padding: 40px;
-  }
-  .formrun-placeholder strong {
-    color: var(--ink);
-    font-size: 13px;
-    letter-spacing: 0.05em;
-  }
   @media (max-width: 720px) {
     .form-wrap { padding: 32px 22px; }
   }
@@ -1364,26 +1347,21 @@
 
     <div class="form-wrap reveal">
       <p class="form-intro">
-        「営業を受ける」というより、<strong>情報交換のお時間</strong>として捉えていただければ幸いです。フィットしないと感じられた場合は、その場でお断りいただいて構いません。下記フォームより、お気軽にご記入ください。
+        「営業を受ける」というより、<strong>情報交換のお時間</strong>として捉えていただければ幸いです。「今すぐ何かを変える予定はないが、選択肢として聞いておきたい」といった段階のご相談も歓迎しております。フィットしないと感じられた場合は、その場でお断りいただいて構いません。
       </p>
 
-      <!-- FORMRUN_EMBED_START -->
-      <!-- ▼ formrunの埋め込みコードをここに貼ってください ▼
-           例:
-           <div class="formrun-embed" data-formrun-form="@yourForm" data-formrun-redirect="true"></div>
-           <script src="https://sdk.form.run/js/v2/formrun.js"></script>
-      -->
-      <div class="formrun-placeholder">
-        <strong>[ formrun embed area ]</strong>
-        <span>ここにformrunの埋め込みコードを貼り付けてください</span>
-      </div>
-      <!-- FORMRUN_EMBED_END -->
+      <script src="https://sdk.form.run/js/v2/embed.js"></script>
+      <div
+        class="formrun-embed"
+        data-formrun-form="@chiikaru-eYSDNYZ4nNcAF7R7b4KM"
+        data-formrun-redirect="true"
+      ></div>
     </div>
 
     <div class="alt-contact">
       <strong>フォーム以外でも結構です。</strong><br>
-      日程選択は <a href="https://timerex.net/s/xxx" target="_blank" rel="noopener">timerex.net/s/xxx</a> ／
-      メールでのご連絡は <a href="mailto:aaa@aaaaa">aaa@aaaaa</a>（川島宛）までお気軽に。
+      日程選択は <a href="https://timerex.net/s/k.fifty.1110_2dd1/72e79cc3/" target="_blank" rel="noopener">timerex.net</a> ／
+      メールでのご連絡は <a href="mailto:info@chiikaru.co.jp">info@chiikaru.co.jp</a>（川島宛）までお気軽に。
     </div>
   </div>
 </section>
