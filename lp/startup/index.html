@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>成長フェーズの受託開発 | 小さく進めて大きく変える合同会社</title>
-<meta name="description" content="メガベンチャー出身PM、事業売却経験を持つエンジニア、AWS出身のインフラエンジニア。事業成長の実績を持つ少数精鋭チームが、戦略から開発・グロースまで一気通貫で支援します。先着5社限定で無料トライアルをご提供。">
+<title>プロダクト健康診断（無料） | 小さく進めて大きく変える合同会社</title>
+<meta name="description" content="プロダクトの伸び悩み・運用コストの見直しに。面談参加者限定で、健康診断レポートを無料提供。事業成長の実績がある少数精鋭チームが診断から実行まで支援します。">
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -310,51 +310,41 @@
   .problems-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--rule);
-    border-left: 1px solid var(--rule);
+    gap: 20px;
   }
   .problem-card {
-    padding: 44px 36px;
-    border-right: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
+    padding: 40px 28px;
+    border: 1px solid var(--rule);
     background: var(--bg-card);
-    transition: background 0.3s;
+    text-align: center;
+    transition: border-color 0.25s;
   }
-  .problem-card:hover { background: var(--bg-soft); }
+  .problem-card:hover { border-color: var(--accent); }
   .problem-num {
     font-family: "IBM Plex Mono", monospace;
     font-size: 11px;
     color: var(--ink-4);
-    letter-spacing: 0.18em;
-    margin-bottom: 22px;
+    letter-spacing: 0.12em;
+    margin-bottom: 18px;
     font-weight: 500;
   }
   .problem-headline {
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 600;
-    line-height: 1.65;
-    margin-bottom: 18px;
-  }
-  .problem-headline::before {
-    content: "「"; color: var(--accent);
-  }
-  .problem-headline::after {
-    content: "」"; color: var(--accent);
+    line-height: 1.55;
+    margin-bottom: 14px;
   }
   .problem-desc {
     font-size: 14px;
     color: var(--ink-3);
-    line-height: 1.9;
+    line-height: 1.75;
   }
   .problems-conclusion {
-    margin-top: 64px;
-    padding: 36px 40px;
-    background: var(--accent-soft);
-    border-left: 3px solid var(--accent);
+    margin-top: 40px;
+    text-align: center;
     font-size: 18px;
     font-weight: 500;
-    line-height: 1.75;
+    line-height: 1.7;
     color: var(--ink);
   }
   .problems-conclusion strong {
@@ -363,7 +353,42 @@
   }
   @media (max-width: 720px) {
     .problems-grid { grid-template-columns: 1fr; }
-    .problems-conclusion { padding: 28px 24px; font-size: 16px; }
+    .problems-conclusion { font-size: 16px; }
+  }
+
+  /* ============ STATS BAR ============ */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    margin-bottom: 56px;
+  }
+  .stats-item {
+    padding: 28px 20px;
+    text-align: center;
+    border-right: 1px solid var(--rule);
+  }
+  .stats-item:last-child { border-right: none; }
+  .stats-num {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .stats-label {
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+  @media (max-width: 720px) {
+    .stats-bar { grid-template-columns: 1fr 1fr; }
+    .stats-item:nth-child(2) { border-right: none; }
+    .stats-item:nth-child(1),
+    .stats-item:nth-child(2) { border-bottom: 1px solid var(--rule); }
   }
 
   /* ============ MEMBERS ============ */
@@ -493,101 +518,46 @@
   }
 
   /* ============ CASES ============ */
-  .case {
+  .cases-grid {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 60px;
-    padding: 56px 0;
-    border-bottom: 1px solid var(--rule);
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
-  .case:first-child { border-top: 1px solid var(--rule); }
-  .case-aside {
-    position: sticky;
-    top: 100px;
+  .case-card {
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    padding: 32px 28px;
+    transition: border-color 0.25s;
   }
+  .case-card:hover { border-color: var(--accent); }
   .case-num {
     font-family: "IBM Plex Mono", monospace;
     font-size: 11px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.12em;
     color: var(--accent);
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     font-weight: 500;
+  }
+  .case-result {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 12px;
+    color: var(--ink);
   }
   .case-client {
     font-size: 13px;
     color: var(--ink-3);
-    margin-bottom: 18px;
-    line-height: 1.7;
+    margin-bottom: 16px;
+    line-height: 1.6;
   }
-  .case-headline-num {
-    font-size: 84px;
-    line-height: 1;
-    font-weight: 300;
-    color: var(--accent);
-    letter-spacing: -0.04em;
-    margin-bottom: 8px;
-  }
-  .case-headline-num .unit {
-    font-size: 32px;
-    color: var(--ink);
-    margin-left: 4px;
-    font-weight: 400;
-  }
-  .case-headline-label {
-    font-size: 13px;
-    color: var(--ink-3);
-    font-weight: 500;
-  }
-
-  .case-body {
-    font-size: 15.5px;
-    line-height: 2;
+  .case-summary {
+    font-size: 14px;
     color: var(--ink-2);
-  }
-  .case-title {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.5;
-    margin-bottom: 28px;
-    color: var(--ink);
-    letter-spacing: -0.005em;
-  }
-  .case-step {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 20px;
-    padding: 16px 0;
-    border-top: 1px dashed var(--rule);
-  }
-  .case-step:last-child { border-bottom: 1px dashed var(--rule); }
-  .case-step-label {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 500;
-    padding-top: 4px;
-  }
-  .case-step-content {
-    font-size: 15px;
-    line-height: 1.95;
-    color: var(--ink-2);
-  }
-  .case-step-content strong {
-    font-weight: 600;
-    color: var(--ink);
+    line-height: 1.75;
   }
   @media (max-width: 880px) {
-    .case {
-      grid-template-columns: 1fr;
-      gap: 28px;
-      padding: 44px 0;
-    }
-    .case-aside { position: static; }
-    .case-headline-num { font-size: 64px; }
-    .case-step { grid-template-columns: 1fr; gap: 4px; }
+    .cases-grid { grid-template-columns: 1fr; }
   }
 
   /* ============ REASONS ============ */
@@ -604,44 +574,32 @@
   .reasons-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid rgba(220, 217, 208, 0.18);
-    border-left: 1px solid rgba(220, 217, 208, 0.18);
+    gap: 24px;
   }
   .reason-card {
-    padding: 56px 25px;
-    border-right: 1px solid rgba(220, 217, 208, 0.18);
-    border-bottom: 1px solid rgba(220, 217, 208, 0.18);
+    padding: 40px 36px;
+    border: 1px solid rgba(220, 217, 208, 0.2);
     transition: background 0.3s;
   }
   .reason-card:hover { background: rgba(220, 217, 208, 0.04); }
   .reason-num {
     font-family: "IBM Plex Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
+    font-size: 12px;
+    letter-spacing: 0.14em;
     color: var(--accent-line);
-    margin-bottom: 26px;
+    margin-bottom: 18px;
     font-weight: 500;
   }
   .reason-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
-    line-height: 1.55;
-    margin-bottom: 8px;
+    line-height: 1.5;
+    margin-bottom: 14px;
     color: var(--bg);
-    letter-spacing: -0.005em;
-  }
-  .reason-title-en {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 13px;
-    color: var(--accent-line);
-    font-weight: 400;
-    margin-bottom: 24px;
-    letter-spacing: 0.04em;
   }
   .reason-body {
     font-size: 15px;
-    line-height: 1.95;
+    line-height: 1.8;
     color: rgba(250, 250, 247, 0.78);
   }
   .reason-body strong {
@@ -650,7 +608,7 @@
   }
   @media (max-width: 720px) {
     .reasons-grid { grid-template-columns: 1fr; }
-    .reason-card { padding: 40px 28px; }
+    .reason-card { padding: 32px 24px; }
   }
 
   /* ============ OFFER ============ */
@@ -695,6 +653,95 @@
     line-height: 1.95;
   }
   .offer-sub strong { font-weight: 600; color: var(--ink); }
+
+  .offer-single {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 44px 44px;
+    margin-bottom: 24px;
+    transition: border-color 0.3s;
+  }
+  .offer-single:hover { border-color: var(--accent); }
+  .offer-single-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .offer-single-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .offer-single-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .offer-single-title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.55;
+    margin-bottom: 16px;
+    letter-spacing: -0.005em;
+  }
+  .offer-single-desc {
+    font-size: 14.5px;
+    color: var(--ink-3);
+    line-height: 1.95;
+  }
+  .offer-single-desc strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .offer-details {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 32px 36px;
+    margin-bottom: 40px;
+  }
+  .offer-details-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .offer-details-list {
+    list-style: none;
+    display: grid;
+    gap: 14px;
+  }
+  .offer-details-list li {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.85;
+    padding-left: 18px;
+    position: relative;
+  }
+  .offer-details-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .offer-details-list strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
 
   .offer-options {
     display: grid;
@@ -964,7 +1011,7 @@
       </div>
     </a>
     <a href="#contact" class="topbar-cta">
-      無料相談に申し込む
+      面談を申し込む
       <span class="arrow">→</span>
     </a>
   </div>
@@ -977,34 +1024,28 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="hero-eyebrow reveal">For Growth-Stage Startups</div>
         <h1 class="hero-title reveal">
-          成長フェーズの開発を、<br>
-          <span class="accent">最短距離</span>で動かす。
-          <span class="sub-en">A proven delivery team for growth-stage startups.</span>
+          リリース後の運用が、<br>
+          <span class="accent">一番むずかしい</span>。
         </h1>
         <p class="hero-lead reveal">
-          メガベンチャー出身のPMと、事業売却経験を持つエンジニア。<br>
-          少数精鋭の内製チームが、戦略設計から開発・グロースまで一気通貫で並走します。<br>
-          まずは <strong>3時間分のプロトタイプ・機能開発</strong>、もしくは <strong>1ヶ月の無料コンサルティング</strong> を、無償でお試しください。
+          稼働はしているのに、利益やDXにつながらない。<br>
+          面談にご参加いただいた方限定で、「プロダクト健康診断」のレポートを無料でお渡ししています。<br>
+          伸び代、効率化、運用コストのどこから手を付けるかを、具体的に整理します。
         </p>
         <div class="hero-cta-row reveal">
-          <a href="#offer" class="btn btn-primary">
-            無料トライアルの詳細を見る
-            <span class="arrow">→</span>
-          </a>
-          <a href="#contact" class="btn btn-secondary">
-            30分の相談に申し込む
+          <a href="#contact" class="btn btn-primary">
+            面談を申し込む
             <span class="arrow">→</span>
           </a>
         </div>
       </div>
       <aside class="hero-aside reveal">
-        <div class="hero-aside-label">Limited Offer</div>
-        <div class="hero-aside-num">5<span class="unit">社</span></div>
-        <div class="hero-aside-headline">先着5社様限定<br>無料トライアル受付中</div>
+        <div class="hero-aside-label">Free Report</div>
+        <div class="hero-aside-num">0<span class="unit">円</span></div>
+        <div class="hero-aside-headline">面談参加者限定<br>レポート無料</div>
         <div class="hero-aside-desc">
-          少数精鋭の体制を維持するため、新規のお取引は限定的にお受けしております。
+          伸び代と運用コストの見直しポイントを整理してお渡しします。
         </div>
       </aside>
     </div>
@@ -1017,32 +1058,31 @@
     <div class="section-header">
       <div class="section-num">01<span class="section-num-label">Challenges</span></div>
       <h2 class="section-title">
-        <span class="en">If any of these sound familiar—</span>
-        グロースの手前で、立ち止まっていませんか。
+        このような課題を<br>お持ちではありませんか。
       </h2>
     </div>
 
     <div class="problems-grid reveal">
       <div class="problem-card">
         <div class="problem-num">No. 01</div>
-        <h3 class="problem-headline">外注コストが高い</h3>
-        <p class="problem-desc">大手ベンダーに頼むほどの予算はないが、品質は妥協したくない。発注先の選定そのものに時間を取られている。</p>
+        <h3 class="problem-headline">成果につながらない</h3>
+        <p class="problem-desc">運用は続けている。<br>しかし利益やDXに<br>結びついていない。</p>
       </div>
       <div class="problem-card">
         <div class="problem-num">No. 02</div>
-        <h3 class="problem-headline">採用が進まない</h3>
-        <p class="problem-desc">良いエンジニアほど競争率が高く、即戦力の獲得に苦戦している。一方で、プロダクトの開発スピードは落とせない。</p>
+        <h3 class="problem-headline">運用コストが増える</h3>
+        <p class="problem-desc">費用は積み上がる。<br>どこを見直すべきか、<br>判断がつかない。</p>
       </div>
       <div class="problem-card">
         <div class="problem-num">No. 03</div>
-        <h3 class="problem-headline">グロースを強化したい</h3>
-        <p class="problem-desc">プロダクトはできた。次は「伸ばす」フェーズ。しかしマーケと開発を行き来できる相談相手は、なかなか見つからない。</p>
+        <h3 class="problem-headline">改善ノウハウがない</h3>
+        <p class="problem-desc">社内だけでは、<br>改善の打ち手が<br>出てこない。</p>
       </div>
     </div>
 
     <div class="problems-conclusion reveal">
-      その課題、<strong>戦略の設計から実装まで一貫</strong>して。<br>
-      同じ実績あるメンバーで、最後までやり切ります。
+      現状の優先順位を、一緒に整理しませんか。<br>
+      <strong>まずは面談へお申し込みください。</strong>
     </div>
   </div>
 </section>
@@ -1053,14 +1093,13 @@
     <div class="section-header">
       <div class="section-num">02<span class="section-num-label">Team</span></div>
       <h2 class="section-title">
-        <span class="en">Three roles, one room — with the track record to match.</span>
-        実際に手を動かす、<br>代表メンバーをご紹介します。
+        診断するメンバーです。
       </h2>
     </div>
 
     <p class="members-intro reveal">
-      私たちの「少数精鋭」は、<strong>事業を成長させた経験があるメンバーが対応する体制</strong>です。<br>
-      下記のメンバーが、相談から納品、本契約後の運用まで一貫して担当します。途中で担当者が変わることや、要件の引き継ぎロスは発生しません。
+      事業を成長させた経験があるメンバーが担当します。<br>
+      診断から実行まで、同じチームで対応します。
     </p>
 
     <div class="member reveal">
@@ -1073,16 +1112,16 @@
           <div class="member-name">川島 健吾</div>
           <div class="member-name-en">Kengo Kawashima</div>
         </div>
-        <div class="member-role">代表 ／ PM・マーケティングコンサルタント</div>
+        <div class="member-role">代表 ／ PM・マーケティング</div>
         <p class="member-bio">
-          <strong>Retty・GameWithなど複数のメガベンチャー</strong>でプロダクトマネジメント・コンテンツマーケティングに従事。<br>
-          独立後は、<strong>大手広告代理店の新規事業立ち上げ・市場調査</strong>を支援するほか、<strong>大手SIerの開発体制構築・大手メーカーのマーケティングコンサル</strong>を担当。新規ユーザー数やリード獲得件数の増加に貢献してきた。
+          Retty・GameWithなど、<strong>メガベンチャーでPM・マーケを担当</strong>。<br>
+          独立後は、広告代理店の新規事業立ち上げや、SIer・メーカーの体制構築を支援。<br>
+          新規ユーザー数・リード獲得の改善に貢献してきました。
         </p>
         <div class="member-tags">
           <span class="member-tag">上場企業PM歴任</span>
           <span class="member-tag">新規事業立ち上げ</span>
-          <span class="member-tag">マーケティングコンサル</span>
-          <span class="member-tag">市場調査</span>
+          <span class="member-tag">マーケティング</span>
         </div>
       </div>
     </div>
@@ -1097,16 +1136,16 @@
           <div class="member-name">グロースエンジニア</div>
           <div class="member-name-en">Engineering & Growth</div>
         </div>
-        <div class="member-role">開発 ／ マーケティング ／ グロースハック</div>
+        <div class="member-role">開発 ／ マーケ ／ グロース</div>
         <p class="member-bio">
-          プログラミングスクールを<strong>立ち上げから集客・運営までを一手に担い、バイアウト（事業売却）を実現</strong>。受託エンジニアではなく、<strong>事業当事者として開発・マーケ・グロースハックを一気通貫で経験</strong>している。<br >
-          「言われたものを作る」ではなく「事業を伸ばすために何を作るか」を一緒に議論できる、貴重なタイプのエンジニア。
+          プログラミングスクールを立ち上げ、<strong>事業売却（バイアウト）を実現</strong>。<br>
+          受託ではなく、事業当事者として開発・マーケを経験しています。<br>
+          「何を作るか」から一緒に議論できます。
         </p>
         <div class="member-tags">
-          <span class="member-tag">事業売却（バイアウト）経験</span>
+          <span class="member-tag">事業売却経験</span>
           <span class="member-tag">フルスタック開発</span>
           <span class="member-tag">グロースハック</span>
-          <span class="member-tag">事業立ち上げ</span>
         </div>
       </div>
     </div>
@@ -1118,12 +1157,14 @@
       </div>
       <div class="member-body">
         <div class="member-name-row">
-          <div class="member-name">インフラ・セキュリティエンジニア</div>
+          <div class="member-name">インフラ・セキュリティ</div>
           <div class="member-name-en">Infrastructure & Security</div>
         </div>
-        <div class="member-role">クラウド ／ セキュリティ ／ インフラ設計</div>
+        <div class="member-role">クラウド ／ セキュリティ</div>
         <p class="member-bio">
-          <strong>AWS勤務経験</strong>を持つエンジニア。セキュリティ要件の高いプロダクト開発・インフラ構築を担当。スタートアップにありがちな「リリース後にセキュリティで詰まる」「監査対応で再設計が必要になる」事態を、<strong>初期設計の段階から避けるための知見</strong>を持ち込みます。
+          <strong>AWS勤務経験</strong>を持つエンジニア。<br>
+          セキュリティ要件の高いプロダクトのインフラ設計を担当。<br>
+          リリース後の詰まりを、初期設計から避けます。
         </p>
         <div class="member-tags">
           <span class="member-tag">AWS実務経験</span>
@@ -1141,98 +1182,47 @@
     <div class="section-header">
       <div class="section-num">03<span class="section-num-label">Case Studies</span></div>
       <h2 class="section-title">
-        <span class="en">Proof, not just promise.</span>
-        実績を、もう一段深く。
+        似た状況で、<br>やってきたこと。
       </h2>
     </div>
 
-    <div class="case reveal">
-      <div class="case-aside">
+    <div class="stats-bar reveal">
+      <div class="stats-item">
+        <div class="stats-num">200%</div>
+        <div class="stats-label">新規ユーザー数</div>
+      </div>
+      <div class="stats-item">
+        <div class="stats-num">0→1</div>
+        <div class="stats-label">新規事業立ち上げ</div>
+      </div>
+      <div class="stats-item">
+        <div class="stats-num">EXIT</div>
+        <div class="stats-label">事業売却経験</div>
+      </div>
+      <div class="stats-item">
+        <div class="stats-num">AWS</div>
+        <div class="stats-label">インフラ実務経験</div>
+      </div>
+    </div>
+
+    <div class="cases-grid reveal">
+      <div class="case-card">
         <div class="case-num">CASE / 01</div>
-        <div class="case-client">大手広告代理店<br>新規事業開発支援</div>
-        <div class="case-headline-num">0<span class="unit">→ 1</span></div>
-        <div class="case-headline-label">新規事業をゼロから立ち上げ</div>
+        <div class="case-result">新規ユーザー数 200%</div>
+        <div class="case-client">大手SIer ／ メーカー</div>
+        <p class="case-summary">開発体制とマーケが分断していた状態を整理。<br>打ち手と実装のスピードを両立しました。</p>
       </div>
-      <div class="case-body">
-        <h3 class="case-title">市場調査から事業立ち上げまで、<br>一気通貫でサポート</h3>
-        <div class="case-step">
-          <div class="case-step-label">Challenge</div>
-          <div class="case-step-content">
-            <strong>新規領域への参入を検討していたが</strong>、社内に立ち上げ経験者が不足。市場性の見極めから、検証用プロダクトの開発、初期ユーザー獲得までを伴走できるパートナーを探していた。
-          </div>
-        </div>
-        <div class="case-step">
-          <div class="case-step-label">Approach</div>
-          <div class="case-step-content">
-            代表・川島がPMとして、<strong>市場調査・競合分析・要件定義</strong>からプロジェクトに入り、グロースエンジニアと組んで <strong>PoC開発</strong> を実施。並行して<strong>グロース戦略の設計</strong>まで一貫して行った。
-          </div>
-        </div>
-        <div class="case-step">
-          <div class="case-step-label">Outcome</div>
-          <div class="case-step-content">
-            事業の方向性を定量的な根拠とともに固めたうえで、初期プロダクトの開発・検証フェーズへ移行。<strong>同じチームが「調査」「設計」「開発」を担当</strong>することで、引き継ぎロスのない事業立ち上げを実現。
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="case reveal">
-      <div class="case-aside">
+      <div class="case-card">
         <div class="case-num">CASE / 02</div>
-        <div class="case-client">大手SIer ／ メーカー<br>開発体制構築・マーケティング支援</div>
-        <div class="case-headline-num">200<span class="unit">%</span></div>
-        <div class="case-headline-label">新規ユーザー数 200% を達成</div>
+        <div class="case-result">0→1 の事業立ち上げ</div>
+        <div class="case-client">大手広告代理店</div>
+        <p class="case-summary">市場調査からPoC開発まで支援。<br>同じチームで調査・設計・開発を担当しました。</p>
       </div>
-      <div class="case-body">
-        <h3 class="case-title">体制最適化とマーケティングを<br>同じテーブルで議論する</h3>
-        <div class="case-step">
-          <div class="case-step-label">Challenge</div>
-          <div class="case-step-content">
-            既存サービスを抱えながら、新規領域でのユーザー獲得を強化したい。しかし、<strong>開発体制とマーケ施策が分断</strong>しており、施策が出ても実装が後追いになる状態が続いていた。
-          </div>
-        </div>
-        <div class="case-step">
-          <div class="case-step-label">Approach</div>
-          <div class="case-step-content">
-            代表・川島が <strong>開発体制構築のコンサルティング</strong>と<strong>マーケティング支援</strong>を並行で担当。打ち手の優先順位を整理し、開発・マーケ双方の意思決定を1つの場で行える体制を設計した。
-          </div>
-        </div>
-        <div class="case-step">
-          <div class="case-step-label">Outcome</div>
-          <div class="case-step-content">
-            <strong>新規ユーザー数 200% を達成</strong>。問い合わせ件数も増加。組織分断による「やるべきこと」のすり減りを解消し、施策の打数とスピードが両立する状態を実現した。
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="case reveal">
-      <div class="case-aside">
+      <div class="case-card">
         <div class="case-num">CASE / 03</div>
-        <div class="case-client">自社事業<br>プログラミングスクール運営</div>
-        <div class="case-headline-num"><span class="unit" style="font-size:0.5em;color:var(--accent);font-weight:600;">EXIT</span></div>
-        <div class="case-headline-label">立ち上げから事業売却を実現</div>
-      </div>
-      <div class="case-body">
-        <h3 class="case-title">受託ではなく、<br>事業当事者としてバイアウトを経験</h3>
-        <div class="case-step">
-          <div class="case-step-label">Challenge</div>
-          <div class="case-step-content">
-            メンバーのグロースエンジニアが、<strong>自らプログラミングスクール事業を立ち上げ</strong>。集客・運営・プロダクト改善までをすべて自前で回しながら、事業価値の向上を目指す必要があった。
-          </div>
-        </div>
-        <div class="case-step">
-          <div class="case-step-label">Approach</div>
-          <div class="case-step-content">
-            <strong>開発・マーケティング・グロースハックを一人で一気通貫</strong>。仮説検証を高速で回し、CVR改善・LTV最大化・運営コスト最適化に取り組んだ。
-          </div>
-        </div>
-        <div class="case-step">
-          <div class="case-step-label">Outcome</div>
-          <div class="case-step-content">
-            <strong>バイアウト（事業売却）を実現</strong>。受託エンジニアにはない「自分の金で事業を作って、売れる形にした」感覚を持つメンバーが、貴社のプロダクトに同じ視点で並走します。
-          </div>
-        </div>
+        <div class="case-result">事業売却を実現</div>
+        <div class="case-client">自社事業（プログラミングスクール）</div>
+        <p class="case-summary">開発・マーケ・運営を同じメンバーで担当。<br>売れる形まで、当事者として進めました。</p>
       </div>
     </div>
   </div>
@@ -1244,26 +1234,25 @@
     <div class="section-header">
       <div class="section-num">04<span class="section-num-label">Why Us</span></div>
       <h2 class="section-title">
-        <span class="en">Add proven talent while you hire.</span>
-        採用と並走しながら、<br>実績ある即戦力を
+        他の相談相手と、<br>ここが違います。
       </h2>
     </div>
 
     <div class="reasons-grid reveal">
       <div class="reason-card">
-        <div class="reason-num">REASON / 01</div>
-        <h3 class="reason-title">事業成長の実績を持つ、少数精鋭チーム</h3>
-        <div class="reason-title-en">A team with proven growth experience</div>
+        <div class="reason-num">Point 1.</div>
+        <h3 class="reason-title">診断だけで終わらない</h3>
         <p class="reason-body">
-          上場企業でPMを歴任した代表・川島、事業売却経験を持つエンジニアなど、<strong>事業を成長させた経験があるメンバーが対応</strong>。最初から最後まで、貴社のプロダクトに向き合います。
+          見たあと、同じチームで実行までできます。<br>
+          別ベンダーに渡す手間がありません。
         </p>
       </div>
       <div class="reason-card">
-        <div class="reason-num">REASON / 02</div>
-        <h3 class="reason-title">開発・マーケ・セキュリティをワンストップで</h3>
-        <div class="reason-title-en">One-stop, end-to-end execution</div>
+        <div class="reason-num">Point 2.</div>
+        <h3 class="reason-title">AIを活用した高速開発</h3>
         <p class="reason-body">
-          開発に加えて、<strong>UX改善・マーケティング・セキュリティまでワンストップで対応可能</strong>。複数ベンダーの調整や、責任の所在が不明瞭になる事態を避け、貴社の事業成長を一つのチームで支えます。
+          改善方針が決まったあと、実装が遅れません。<br>
+          要件整理から実装・レビューまで、AIを使って開発スピードを上げています。
         </p>
       </div>
     </div>
@@ -1274,61 +1263,47 @@
 <section class="offer" id="offer">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">05<span class="section-num-label">Free Trial</span></div>
+      <div class="section-num">05<span class="section-num-label">Health Check</span></div>
       <h2 class="section-title">
-        <span class="en">Free trial — limited to 5 companies.</span>
-        まずは、無料で<br>お試しいただけます。
+        面談に参加した方へ、<br>レポートを無料でお渡しします。
       </h2>
     </div>
 
     <div class="offer-banner reveal">
-      <span class="offer-tag">First 5 Companies</span>
+      <span class="offer-tag">面談参加者限定</span>
       <h3 class="offer-title">
-        先着5社様限定。<span class="accent">0円</span>からはじめる、<br>少数精鋭チームのお試し。
+        プロダクトの<span class="accent">伸び代</span>と<br>運用コストの見直しポイントを、レポートで。
       </h3>
       <p class="offer-sub">
-        私たちは、一緒に走る<strong>チームとしての相性</strong>がいちばん大切だと考えています。
-        <br ><strong>貴社のいまの成長段階に合ったパートナー</strong>であることも、欠かせない条件です。 <br >
-        だからこそ、貴社の課題に応じて以下のいずれかを<strong>無料</strong>でご提供しています。 <br >
-        仕事の質や組み方のフィット感を、実際に体感した上でご判断いただけます。トライアルから本契約後まで、担当メンバーは変わりません。
+        30分ほど、現状をお伺いします。<br>
+        伸び代、効率化、運用コストの見直し案をまとめたレポートを、無料でお渡しします。
       </p>
     </div>
 
-    <div class="offer-options reveal">
-      <div class="offer-card">
-        <div class="offer-card-header">
-          <span class="offer-card-label">Option A</span>
-          <span class="offer-card-price">無料 / 3時間</span>
-        </div>
-        <h4 class="offer-card-title">プロトタイプ・<br>機能開発（3時間分）</h4>
-        <p class="offer-card-desc">
-          作りたい機能のたたき台や、検証用プロトタイプを、実績あるメンバーの工数3時間分で実装します。本契約前に、チームの仕事の質を実物でご判断いただけます。
-        </p>
-      </div>
-      <div class="offer-card">
-        <div class="offer-card-header">
-          <span class="offer-card-label">Option B</span>
-          <span class="offer-card-price">無料 / 1ヶ月</span>
-        </div>
-        <h4 class="offer-card-title">無料コンサルティング<br>（1ヶ月）</h4>
-        <p class="offer-card-desc">
-          開発・グロース・組織のいずれの課題でも構いません。1ヶ月、定例形式で並走し、優先順位の整理と次の打ち手を一緒に決めていきます。
-        </p>
-      </div>
+    <div class="offer-details reveal">
+      <div class="offer-details-label">診断内容</div>
+      <ul class="offer-details-list">
+        <li><strong>対象：</strong>既存プロダクト / 社内システム</li>
+        <li><strong>もらうもの：</strong>見直しポイントをまとめたレポート</li>
+        <li><strong>条件：</strong>面談参加者限定</li>
+        <li><strong>費用：</strong>無料</li>
+      </ul>
     </div>
 
     <div class="offer-promise reveal">
       <div class="offer-promise-icon">!</div>
       <div>
-        弊社は少数精鋭の体制をとっており、<strong>トライアルから本契約後まで、一貫して同じメンバーが担当</strong>いたします。初対面の人に毎回事情を説明する必要は、ありません。
+        レポートだけ受け取って終わっても大丈夫です。<br>
+        その後の支援が必要なら、<strong>同じメンバー</strong>が続きを担当します。
       </div>
     </div>
 
     <div class="offer-notes reveal">
-      <div class="offer-notes-label">Notes — ご利用にあたって</div>
+      <div class="offer-notes-label">ご利用にあたって</div>
       <ul class="offer-notes-list">
-        <li>無料トライアル（プロトタイプ・機能開発／無料コンサルティング）は、<strong>事前の無料相談（30分）にお申し込みいただいた方限定</strong>のご案内となります。</li>
-        <li>プロトタイプ・機能開発（3時間分）の成果物につきましては、<strong>本契約に至らなかった場合、弊社が所有権を保持する</strong>ものといたします。あらかじめご了承ください。</li>
+        <li>プロダクト健康診断は、<strong>面談（30分程度）参加者限定</strong>です。</li>
+        <li>レポートは、本契約前の判断材料としてご活用ください。</li>
+        <li>スタートアップから中堅・大手まで、規模を問わず対応します。</li>
       </ul>
     </div>
   </div>
@@ -1340,14 +1315,14 @@
     <div class="section-header">
       <div class="section-num">06<span class="section-num-label">Contact</span></div>
       <h2 class="section-title">
-        <span class="en">Let's talk — 30 minutes.</span>
-        まずは30分、<br>お話しさせてください。
+        まずは30分、<br>お話ししませんか。
       </h2>
     </div>
 
     <div class="form-wrap reveal">
       <p class="form-intro">
-        まずは、情報交換のお時間として捉えていただければ幸いです。「今すぐ何かを変える予定はないが、選択肢として聞いておきたい」といった段階のご相談も歓迎しております。
+        まずは情報交換で構いません。<br>
+        「一度、外から見てほしい」という段階のご相談も歓迎します。
       </p>
 
       <script src="https://sdk.form.run/js/v2/embed.js"></script>
@@ -1361,7 +1336,7 @@
     <div class="alt-contact">
       <strong>フォーム以外でも結構です。</strong><br>
       日程選択は <a href="https://timerex.net/s/k.fifty.1110_2dd1/72e79cc3/" target="_blank" rel="noopener">timerex.net</a> ／
-      メールでのご連絡は <a href="mailto:info@chiikaru.co.jp">info@chiikaru.co.jp</a>（川島宛）までお気軽に。
+      メールは <a href="mailto:info@chiikaru.co.jp">info@chiikaru.co.jp</a>（川島宛）
     </div>
   </div>
 </section>
@@ -1377,12 +1352,12 @@
         <div class="footer-brand-en">Chiisaku Susumete Ookiku Kaeru, LLC.</div>
         <div class="footer-info">
           代表：川島 健吾 ／ 設立：2024年12月<br>
-          少数精鋭チームによる、戦略・開発・グロース支援。
+          少数精鋭チームによる、プロダクト健康診断・開発・グロース支援。
         </div>
       </div>
       <div class="footer-meta">
         © 2025 Chiisaku Susumete Ookiku Kaeru, LLC.<br>
-        For Growth-Stage Startups / Tokyo, Japan
+        For Product Leaders / Tokyo, Japan
       </div>
     </div>
   </div>
