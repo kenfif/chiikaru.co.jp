@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>トライアル開発（無料・先着5社） | 小さく進めて大きく変える合同会社</title>
-<meta name="description" content="新規機能のプロトタイプ、または既存機能の改修を3営業日以内・無料でお試し。発注前に開発力と相性を見極められます。先着5社限定。CTO・VPoE・開発責任者向け。">
+<meta name="description" content="新規機能のプロトタイプ、または既存機能の改修を5営業日以内・無料でお試し。発注前に開発力と相性を見極められます。先着5社限定。CTO・VPoE・開発責任者向け。">
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -351,44 +351,13 @@
     color: var(--accent-deep);
     font-weight: 700;
   }
+  .problems-cta {
+    margin-top: 32px;
+    text-align: center;
+  }
   @media (max-width: 720px) {
     .problems-grid { grid-template-columns: 1fr; }
     .problems-conclusion { font-size: 16px; }
-  }
-
-  /* ============ STATS BAR ============ */
-  .stats-bar {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    border: 1px solid var(--rule);
-    background: var(--bg-card);
-    margin-bottom: 56px;
-  }
-  .stats-item {
-    padding: 28px 20px;
-    text-align: center;
-    border-right: 1px solid var(--rule);
-  }
-  .stats-item:last-child { border-right: none; }
-  .stats-num {
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--accent);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-  .stats-label {
-    font-size: 13px;
-    color: var(--ink-3);
-    line-height: 1.5;
-  }
-  @media (max-width: 720px) {
-    .stats-bar { grid-template-columns: 1fr 1fr; }
-    .stats-item:nth-child(2) { border-right: none; }
-    .stats-item:nth-child(1),
-    .stats-item:nth-child(2) { border-bottom: 1px solid var(--rule); }
   }
 
   /* ============ MEMBERS ============ */
@@ -403,6 +372,22 @@
     font-weight: 600;
     color: var(--ink);
     border-bottom: 1.5px solid var(--accent);
+  }
+  .members-outro {
+    margin-top: 56px;
+    font-size: 16px;
+    line-height: 2;
+    color: var(--ink-2);
+    text-align: center;
+  }
+  .members-outro strong {
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1.5px solid var(--accent);
+  }
+  .members-cta {
+    margin-top: 28px;
+    text-align: center;
   }
 
   .member {
@@ -517,49 +502,6 @@
     .member-body { padding: 32px 28px; }
   }
 
-  /* ============ CASES ============ */
-  .cases-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .case-card {
-    border: 1px solid var(--rule);
-    background: var(--bg-card);
-    padding: 32px 28px;
-    transition: border-color 0.25s;
-  }
-  .case-card:hover { border-color: var(--accent); }
-  .case-num {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    margin-bottom: 16px;
-    font-weight: 500;
-  }
-  .case-result {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.45;
-    margin-bottom: 12px;
-    color: var(--ink);
-  }
-  .case-client {
-    font-size: 13px;
-    color: var(--ink-3);
-    margin-bottom: 16px;
-    line-height: 1.6;
-  }
-  .case-summary {
-    font-size: 14px;
-    color: var(--ink-2);
-    line-height: 1.75;
-  }
-  @media (max-width: 880px) {
-    .cases-grid { grid-template-columns: 1fr; }
-  }
-
   /* ============ REASONS ============ */
   .reasons {
     background: var(--ink);
@@ -571,132 +513,79 @@
   .reasons .section-title { color: var(--bg); }
   .reasons .section-title .en { color: var(--accent-line); }
 
-  .reasons-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 48px;
+  .compare-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  .reason-card {
-    padding: 32px 28px;
-    border: 1px solid rgba(220, 217, 208, 0.2);
-    transition: background 0.3s;
+  .compare-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
   }
-  .reason-card:hover { background: rgba(220, 217, 208, 0.04); }
-  .reason-card.is-ours {
-    border-color: var(--accent-line);
-    background: rgba(183, 201, 192, 0.08);
-  }
-  .reason-num {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    color: var(--accent-line);
-    margin-bottom: 18px;
-    font-weight: 500;
-  }
-  .reason-title {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.5;
-    margin-bottom: 14px;
-    color: var(--bg);
-  }
-  .reason-body {
+  .compare-table th,
+  .compare-table td {
+    border: 1px solid rgba(220, 217, 208, 0.22);
+    padding: 20px 22px;
     font-size: 14px;
     line-height: 1.75;
-    color: rgba(250, 250, 247, 0.78);
+    text-align: center;
+    vertical-align: middle;
   }
-  .reason-body strong {
-    color: var(--bg);
+  .compare-table thead th {
+    font-size: 15px;
     font-weight: 600;
-  }
-  .reason-list {
-    list-style: none;
-    display: grid;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-  }
-  .reason-list li {
-    font-size: 14px;
-    line-height: 1.6;
-    color: rgba(250, 250, 247, 0.78);
-    padding-left: 14px;
-    position: relative;
-  }
-  .reason-list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: rgba(250, 250, 247, 0.35);
-  }
-  .reason-card.is-ours .reason-list li::before {
-    background: var(--accent-line);
-  }
-  .skills-block {
-    border: 1px solid rgba(220, 217, 208, 0.2);
-    padding: 36px 36px 32px;
-  }
-  .skills-label {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    color: var(--accent-line);
-    margin-bottom: 12px;
-    font-weight: 500;
-  }
-  .skills-title {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 28px;
     color: var(--bg);
+    background: rgba(220, 217, 208, 0.07);
+    padding: 16px 22px;
   }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+  .compare-table thead th.compare-empty {
+    background: transparent;
+    border: none;
   }
-  .skill-card-title {
+  .compare-table thead th.is-ours {
+    background: var(--accent);
+    color: var(--bg);
     font-size: 16px;
+    letter-spacing: 0.02em;
+  }
+  .compare-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--bg);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: -3px;
+  }
+  .compare-table tbody th {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(250, 250, 247, 0.85);
+    background: rgba(220, 217, 208, 0.04);
+    text-align: left;
+    white-space: nowrap;
+  }
+  .compare-table tbody td {
+    color: rgba(250, 250, 247, 0.72);
+  }
+  .compare-table tbody td.is-ours {
+    color: var(--bg);
     font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--bg);
+    background: rgba(183, 201, 192, 0.10);
+    border-left-color: var(--accent-line);
+    border-right-color: var(--accent-line);
   }
-  .skill-card-role {
-    font-size: 13px;
-    color: var(--accent-line);
-    margin-bottom: 14px;
-  }
-  .skill-card-body {
-    font-size: 14px;
-    line-height: 1.75;
-    color: rgba(250, 250, 247, 0.78);
-    margin-bottom: 16px;
-  }
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .skill-tag {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 11px;
-    color: var(--bg);
-    border: 1px solid rgba(183, 201, 192, 0.45);
-    padding: 5px 10px;
-  }
-  @media (max-width: 880px) {
-    .reasons-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .skills-block { padding: 28px 24px; }
+  .compare-table tbody tr:last-child td.is-ours {
+    border-bottom-color: var(--accent-line);
   }
   @media (max-width: 720px) {
-    .reason-card { padding: 28px 22px; }
+    .compare-table th,
+    .compare-table td { padding: 14px 14px; font-size: 13px; }
   }
 
   /* ============ OFFER ============ */
@@ -1118,7 +1007,7 @@
         </h1>
         <p class="hero-lead reveal">
           外注コストが高い。いいエンジニアの採用も進まない。<br>
-          先着5社様限定で、新規機能のプロトタイプまたは既存機能の改修を、<strong>3営業日以内・無料</strong>でお試しいただけます。<br>
+          先着5社様限定で、<strong>実績豊富な優秀エンジニア</strong>による新規機能のプロトタイプ作成または既存機能の改修を、<strong>5営業日以内・無料</strong>でお試しいただけます。<br>
           本契約前に、開発力と相性をご判断ください。
         </p>
         <div class="hero-cta-row reveal">
@@ -1133,7 +1022,7 @@
         <div class="hero-aside-num">5<span class="unit">社</span></div>
         <div class="hero-aside-headline">先着5社様限定<br>無料トライアル</div>
         <div class="hero-aside-desc">
-          ご依頼から3営業日以内を目安に納品します。
+          ご依頼から5営業日以内を目安に納品します。
         </div>
       </aside>
     </div>
@@ -1146,7 +1035,7 @@
     <div class="section-header">
       <div class="section-num">01<span class="section-num-label">Challenges</span></div>
       <h2 class="section-title">
-        このような課題を<br>お持ちではありませんか。
+        採用は進まない。<br>外注は失敗できない。
       </h2>
     </div>
 
@@ -1154,23 +1043,29 @@
       <div class="problem-card">
         <div class="problem-num">No. 01</div>
         <h3 class="problem-headline">外注コストが高い</h3>
-        <p class="problem-desc">品質は落としたくない。<br>しかし予算は限られる。<br>発注先選びにも時間がかかる。</p>
+        <p class="problem-desc">エージェントや開発会社に頼むと、<br>数百万円以上かかることも。<br>それでも、プロジェクトは止められない。</p>
       </div>
       <div class="problem-card">
         <div class="problem-num">No. 02</div>
         <h3 class="problem-headline">採用が進まない</h3>
-        <p class="problem-desc">即戦力のエンジニアが足りない。<br>採用は長引く。<br>開発スピードは落とせない。</p>
+        <p class="problem-desc">AIを使いこなして爆速で開発できる<br>エンジニアは、なかなか採用できない。<br>採用活動そのものにも時間と工数がかかる。</p>
       </div>
       <div class="problem-card">
         <div class="problem-num">No. 03</div>
-        <h3 class="problem-headline">発注前に見極めたい</h3>
-        <p class="problem-desc">契約後に相性が合わない、<br>という失敗は避けたい。<br>先に実力を見たい。</p>
+        <h3 class="problem-headline">発注前の見極めが難しい</h3>
+        <p class="problem-desc">経歴やスキルだけでなく、<br>自社との相性も確かめたい。<br>失敗しないために、先に実力を見たい。</p>
       </div>
     </div>
 
     <div class="problems-conclusion reveal">
-      まずは小さく試して、判断しませんか。<br>
-      <strong>無料トライアルへお申し込みください。</strong>
+      採用か、外注か。<strong>その前にできることがあります。</strong><br>
+      まずは小さく試して、判断しませんか。
+    </div>
+    <div class="problems-cta reveal">
+      <a href="#contact" class="btn btn-primary">
+        トライアル開発の相談をする
+        <span class="arrow">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1181,13 +1076,13 @@
     <div class="section-header">
       <div class="section-num">02<span class="section-num-label">Team</span></div>
       <h2 class="section-title">
-        実際に手を動かす<br>エンジニアです。
+        ご依頼いただける<br>エンジニアの一例です。
       </h2>
     </div>
 
     <p class="members-intro reveal">
-      トライアルから本契約後まで、同じエンジニアが担当します。<br>
-      採用やSESではなく、実力のあるエンジニアに直接お願いできます。
+      事業売却経験のあるエンジニアを含めた、少数精鋭のチームです。<br>
+      <strong>チーム単位でのご依頼から、エンジニア個人へのご依頼まで</strong>、状況に合わせて柔軟に対応します。
     </p>
 
     <div class="member reveal">
@@ -1262,57 +1157,17 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ===== CASES ===== -->
-<section id="cases">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-num">03<span class="section-num-label">Case Studies</span></div>
-      <h2 class="section-title">
-        開発の現場で、<br>やってきたこと。
-      </h2>
-    </div>
-
-    <div class="stats-bar reveal">
-      <div class="stats-item">
-        <div class="stats-num">200%</div>
-        <div class="stats-label">新規ユーザー数</div>
-      </div>
-      <div class="stats-item">
-        <div class="stats-num">0→1</div>
-        <div class="stats-label">新規事業立ち上げ</div>
-      </div>
-      <div class="stats-item">
-        <div class="stats-num">EXIT</div>
-        <div class="stats-label">事業売却経験</div>
-      </div>
-      <div class="stats-item">
-        <div class="stats-num">AWS</div>
-        <div class="stats-label">インフラ実務経験</div>
-      </div>
-    </div>
-
-    <div class="cases-grid reveal">
-      <div class="case-card">
-        <div class="case-num">CASE / 01</div>
-        <div class="case-result">新規ユーザー数 200%</div>
-        <div class="case-client">大手SIer ／ メーカー</div>
-        <p class="case-summary">開発体制とマーケが分断していた状態を整理。<br>打ち手と実装のスピードを両立しました。</p>
-      </div>
-      <div class="case-card">
-        <div class="case-num">CASE / 02</div>
-        <div class="case-result">0→1 の事業立ち上げ</div>
-        <div class="case-client">大手広告代理店</div>
-        <p class="case-summary">市場調査からPoC開発まで支援。<br>同じチームで調査・設計・開発を担当しました。</p>
-      </div>
-      <div class="case-card">
-        <div class="case-num">CASE / 03</div>
-        <div class="case-result">事業売却を実現</div>
-        <div class="case-client">自社事業（プログラミングスクール）</div>
-        <p class="case-summary">開発・マーケ・運営を同じメンバーで担当。<br>売れる形まで、当事者として進めました。</p>
-      </div>
+    <p class="members-outro reveal">
+      ご希望に応じて、元メガベンチャー出身のPMによる<strong>要件定義やプロジェクト管理のサポート</strong>も追加できます。<br>
+      開発・マーケティング・セキュリティまでワンストップで支援し、<br>
+      トライアルから本契約後まで同じメンバーが担当します。
+    </p>
+    <div class="members-cta reveal">
+      <a href="#contact" class="btn btn-primary">
+        トライアル開発の相談をする
+        <span class="arrow">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1321,87 +1176,51 @@
 <section class="reasons">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">04<span class="section-num-label">Why Us</span></div>
+      <div class="section-num">03<span class="section-num-label">Why Us</span></div>
       <h2 class="section-title">
         正社員・エージェント・SESと、<br>何が違うか。
       </h2>
     </div>
 
-    <div class="reasons-grid reveal">
-      <div class="reason-card">
-        <div class="reason-num">比較 / 01</div>
-        <h3 class="reason-title">正社員採用</h3>
-        <ul class="reason-list">
-          <li>採用に数ヶ月かかることが多い</li>
-          <li>立ち上がりまで、現場が止まりやすい</li>
-          <li>ミスマッチ時のコストが大きい</li>
-        </ul>
-      </div>
-      <div class="reason-card">
-        <div class="reason-num">比較 / 02</div>
-        <h3 class="reason-title">エージェント・SES</h3>
-        <ul class="reason-list">
-          <li>単価は抑えられても、品質が読みにくい</li>
-          <li>担当が変わりやすい</li>
-          <li>発注前に実力を試しにくい</li>
-        </ul>
-      </div>
-      <div class="reason-card is-ours">
-        <div class="reason-num">比較 / 03</div>
-        <h3 class="reason-title">トライアル開発</h3>
-        <ul class="reason-list">
-          <li>3営業日以内のお試しで見極められる</li>
-          <li>トライアルから同じメンバーが担当</li>
-          <li>採用・契約前に、開発力を確認できる</li>
-        </ul>
-      </div>
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="compare-empty" aria-hidden="true"></th>
+            <th>正社員採用</th>
+            <th>エージェント・SES</th>
+            <th class="is-ours"><span class="compare-check">✓</span> トライアル開発</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>費用</th>
+            <td>採用費＋人件費で<br>年間数百万円〜</td>
+            <td>月額数十万〜数百万円<br>（仲介マージン込み）</td>
+            <td class="is-ours">無料トライアルから<br>始められる</td>
+          </tr>
+          <tr>
+            <th>開発開始までの期間</th>
+            <td>採用に数ヶ月<br>立ち上がりにも時間がかかる</td>
+            <td>契約・アサインまで<br>数週間〜</td>
+            <td class="is-ours">ご依頼から<br>5営業日以内に納品</td>
+          </tr>
+          <tr>
+            <th>発注前の見極め</th>
+            <td>面接のみ<br>実力は入社後にわかる</td>
+            <td>発注前に<br>実力を試しにくい</td>
+            <td class="is-ours">実際の成果物で<br>開発力と相性を確認できる</td>
+          </tr>
+          <tr>
+            <th>担当体制</th>
+            <td>退職リスクがある</td>
+            <td>担当が変わりやすい</td>
+            <td class="is-ours">トライアルから本契約後まで<br>同じメンバーが担当</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="skills-block reveal">
-      <div class="skills-label">Engineer Skills</div>
-      <h3 class="skills-title">対応するエンジニアのスキル</h3>
-      <div class="skills-grid">
-        <div>
-          <div class="skill-card-title">リードエンジニア</div>
-          <div class="skill-card-role">フルスタック ／ Claude Code</div>
-          <p class="skill-card-body">
-            Claude Codeを活用し、要件から実装までを短期間で進めます。<br>
-            フリーランスとして大型プロジェクトを歴任しています。
-          </p>
-          <div class="skill-tags">
-            <span class="skill-tag">Claude Code</span>
-            <span class="skill-tag">爆速開発</span>
-            <span class="skill-tag">大型プロジェクト</span>
-          </div>
-        </div>
-        <div>
-          <div class="skill-card-title">グロースエンジニア</div>
-          <div class="skill-card-role">開発 ／ マーケ ／ グロース</div>
-          <p class="skill-card-body">
-            プログラミングスクールを立ち上げ、事業売却を実現。<br>
-            「何を作るか」から議論できるエンジニアです。
-          </p>
-          <div class="skill-tags">
-            <span class="skill-tag">事業売却経験</span>
-            <span class="skill-tag">フルスタック開発</span>
-            <span class="skill-tag">グロースハック</span>
-          </div>
-        </div>
-        <div>
-          <div class="skill-card-title">インフラ・セキュリティ</div>
-          <div class="skill-card-role">クラウド ／ セキュリティ</div>
-          <p class="skill-card-body">
-            AWS勤務経験を持つエンジニア。<br>
-            インフラ設計・セキュリティ要件の高い案件に対応します。
-          </p>
-          <div class="skill-tags">
-            <span class="skill-tag">AWS実務経験</span>
-            <span class="skill-tag">セキュリティ設計</span>
-            <span class="skill-tag">クラウドインフラ</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1409,7 +1228,7 @@
 <section class="offer" id="offer">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">05<span class="section-num-label">Free Trial</span></div>
+      <div class="section-num">04<span class="section-num-label">Free Trial</span></div>
       <h2 class="section-title">
         先着5社様限定。<br>無料で開発をお試しいただけます。
       </h2>
@@ -1422,7 +1241,7 @@
       </h3>
       <p class="offer-sub">
         「発注してから相性が合わなかった」を避けるためのトライアルです。<br>
-        ご依頼から<strong>3営業日以内</strong>を目安に納品します。
+        ご依頼から<strong>5営業日以内</strong>を目安に納品します。
       </p>
     </div>
 
@@ -1430,9 +1249,9 @@
       <div class="offer-details-label">トライアル内容</div>
       <ul class="offer-details-list">
         <li><strong>対象：</strong>新規機能のプロトタイプ作成、または既存機能の改修</li>
-        <li><strong>納期：</strong>ご依頼から3営業日以内を目安</li>
+        <li><strong>納期：</strong>ご依頼から5営業日以内を目安</li>
         <li><strong>費用：</strong>無料（本契約前の見極めとしてご活用ください）</li>
-        <li><strong>体制：</strong>トライアルから本契約後まで、同じメンバーが担当</li>
+        <li><strong>体制：</strong>トライアルから本契約後まで、一貫して同じメンバーが担当し品質を保証</li>
       </ul>
     </div>
 
@@ -1448,7 +1267,6 @@
       <div class="offer-notes-label">ご利用にあたって</div>
       <ul class="offer-notes-list">
         <li>無料トライアルは、<strong>先着5社様限定</strong>です。事前の無料相談（30分）が必要です。</li>
-        <li>トライアル成果物は、<strong>本契約に至らなかった場合、弊社が所有権を保持</strong>します。</li>
         <li>スタートアップから中堅・大手まで、規模を問わず対応します。</li>
       </ul>
     </div>
@@ -1459,7 +1277,7 @@
 <section class="form-section" id="contact">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">06<span class="section-num-label">Contact</span></div>
+      <div class="section-num">05<span class="section-num-label">Contact</span></div>
       <h2 class="section-title">
         まずは30分、<br>お話ししませんか。
       </h2>
@@ -1498,7 +1316,7 @@
         <div class="footer-brand-en">Chiisaku Susumete Ookiku Kaeru, LLC.</div>
         <div class="footer-info">
           代表：川島 健吾 ／ 設立：2024年12月<br>
-          少数精鋭チームによる、開発・グロース支援。
+          少数精鋭チームによる、開発・マーケティング・セキュリティのワンストップ支援。
         </div>
       </div>
       <div class="footer-meta">
