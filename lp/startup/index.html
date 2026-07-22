@@ -355,6 +355,39 @@
     margin-top: 32px;
     text-align: center;
   }
+
+  /* ============ USE CASES ============ */
+  .usecase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .usecase-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    padding: 30px 28px;
+    transition: border-color 0.25s;
+  }
+  .usecase-item:hover { border-color: var(--accent); }
+  .usecase-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .usecase-title {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  @media (max-width: 880px) {
+    .usecase-grid { grid-template-columns: 1fr; }
+  }
   @media (max-width: 720px) {
     .problems-grid { grid-template-columns: 1fr; }
     .problems-conclusion { font-size: 16px; }
@@ -1033,13 +1066,13 @@
           <span class="accent">一番むずかしい</span>。
         </h1>
         <p class="hero-lead reveal">
-          稼働はしているのに、利益やDXにつながらない。<br>
-          面談にご参加いただいた方限定で、「プロダクト健康診断」のレポートを無料でお渡ししています。<br>
-          伸び代、効率化、運用コストのどこから手を付けるかを、具体的に整理します。
+          プロダクトを立ち上げたが、事業成長やDXにつながらない。<br>
+          面談にご参加いただいた方限定で、現状を変えるための「プロダクト健康診断」のレポートを無料でお渡ししています。<br>
+          集客の強化、DX、運用コストの削減。どこから手を付けるかを、具体的に整理します。
         </p>
         <div class="hero-cta-row reveal">
           <a href="#contact" class="btn btn-primary">
-            面談を申し込む
+            まずは相談する
             <span class="arrow">→</span>
           </a>
         </div>
@@ -1096,11 +1129,38 @@
   </div>
 </section>
 
+<!-- ===== USE CASES ===== -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">02<span class="section-num-label">Expertise</span></div>
+      <h2 class="section-title">
+        得意領域
+      </h2>
+    </div>
+
+    <div class="usecase-grid reveal">
+      <div class="usecase-item">
+        <div class="usecase-num">01</div>
+        <div class="usecase-title">新規事業の立ち上げ</div>
+      </div>
+      <div class="usecase-item">
+        <div class="usecase-num">02</div>
+        <div class="usecase-title">停滞しているプロダクトの改善</div>
+      </div>
+      <div class="usecase-item">
+        <div class="usecase-num">03</div>
+        <div class="usecase-title">社内システムのDX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== MEMBERS ===== -->
 <section class="members" id="members">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">02<span class="section-num-label">Team</span></div>
+      <div class="section-num">03<span class="section-num-label">Team</span></div>
       <h2 class="section-title">
         プロダクトチームの紹介
       </h2>
@@ -1190,9 +1250,9 @@
 <section id="cases">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">03<span class="section-num-label">Case Studies</span></div>
+      <div class="section-num">04<span class="section-num-label">Case Studies</span></div>
       <h2 class="section-title">
-        似た状況で、<br>やってきたこと。
+        主な実績
       </h2>
     </div>
 
@@ -1218,21 +1278,21 @@
     <div class="cases-grid reveal">
       <div class="case-card">
         <div class="case-num">CASE / 01</div>
-        <div class="case-result">新規ユーザー数 200%</div>
+        <div class="case-result">BtoBポータルサイトの<br>新規ユーザー数を2倍に</div>
         <div class="case-client">大手SIer ／ メーカー</div>
-        <p class="case-summary">開発体制とマーケが分断していた状態を整理。<br>打ち手と実装のスピードを両立しました。</p>
+        <p class="case-summary">マーケと開発が分断し、事業成長に必要な施策を打てない状態から、最適なWebマーケティング手段を提案。施策立案から実装までサポートし、1年間でサイト訪問ユーザー数を2倍にしました。</p>
       </div>
       <div class="case-card">
         <div class="case-num">CASE / 02</div>
         <div class="case-result">0→1 の事業立ち上げ</div>
         <div class="case-client">大手広告代理店</div>
-        <p class="case-summary">市場調査からPoC開発まで支援。<br>同じチームで調査・設計・開発を担当しました。</p>
+        <p class="case-summary">Webプラットフォームの立ち上げにて、ターゲットのリサーチやペルソナの作成から、サービスサイトの上流設計まで担当。リリース後に事業を成長させる組織の構築支援も実施しました。</p>
       </div>
       <div class="case-card">
         <div class="case-num">CASE / 03</div>
         <div class="case-result">事業売却を実現</div>
         <div class="case-client">自社事業（プログラミングスクール）</div>
-        <p class="case-summary">開発・マーケ・運営を同じメンバーで担当。<br>売れる形まで、当事者として進めました。</p>
+        <p class="case-summary">自身がプログラミングを習得した経験から、プログラミングスクールを立ち上げ、数々のWebエンジニアを育成。その後、事業売却に成功しました。</p>
       </div>
     </div>
   </div>
@@ -1242,9 +1302,9 @@
 <section class="reasons">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">04<span class="section-num-label">Why Us</span></div>
+      <div class="section-num">05<span class="section-num-label">Why Us</span></div>
       <h2 class="section-title">
-        他の相談相手と、<br>ここが違います。
+        私たちの強み
       </h2>
     </div>
 
@@ -1253,16 +1313,16 @@
         <div class="reason-num">Point 1.</div>
         <h3 class="reason-title">診断だけで終わらない</h3>
         <p class="reason-body">
-          見たあと、同じチームで実行までできます。<br>
-          別ベンダーに渡す手間がありません。
+          診断や分析のご提供にとどまらず、<strong>事業目標の達成</strong>に向けて、施策の実行までサポートします。<br>
+          診断から実行まで同じチームが担当するため、別ベンダーへ引き継ぐ手間もかかりません。
         </p>
       </div>
       <div class="reason-card">
         <div class="reason-num">Point 2.</div>
         <h3 class="reason-title">AIを活用した高速開発</h3>
         <p class="reason-body">
-          改善方針が決まったあと、実装が遅れません。<br>
-          要件整理から実装・レビューまで、AIを使って開発スピードを上げています。
+          AIを活用した高速開発ができる体制のため、<strong>PDCAを高速で回せます</strong>。<br>
+          これからの時代に求められる、スピード感のある開発を実現します。
         </p>
       </div>
     </div>
@@ -1273,7 +1333,7 @@
 <section class="offer" id="offer">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">05<span class="section-num-label">Health Check</span></div>
+      <div class="section-num">06<span class="section-num-label">Health Check</span></div>
       <h2 class="section-title">
         面談に参加した方へ、<br>レポートを無料でお渡しします。
       </h2>
@@ -1285,7 +1345,7 @@
         プロダクトの<span class="accent">伸び代</span>と<br>運用コストの見直しポイントを、レポートで。
       </h3>
       <p class="offer-sub">
-        30分ほど、現状をお伺いします。<br>
+        30分ほど、現状をお伺いした後、<br>
         伸び代、効率化、運用コストの見直し案をまとめたレポートを、無料でお渡しします。
       </p>
     </div>
@@ -1294,7 +1354,7 @@
       <div class="offer-details-label">診断内容</div>
       <ul class="offer-details-list">
         <li><strong>対象：</strong>既存プロダクト / 社内システム</li>
-        <li><strong>もらうもの：</strong>見直しポイントをまとめたレポート</li>
+        <li><strong>ご提供物：</strong>見直しポイントをまとめたレポート</li>
         <li><strong>条件：</strong>面談参加者限定</li>
         <li><strong>費用：</strong>無料</li>
       </ul>
@@ -1323,7 +1383,7 @@
 <section class="form-section" id="contact">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">06<span class="section-num-label">Contact</span></div>
+      <div class="section-num">07<span class="section-num-label">Contact</span></div>
       <h2 class="section-title">
         まずは30分、<br>お話ししませんか。
       </h2>
