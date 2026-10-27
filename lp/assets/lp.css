@@ -121,6 +121,11 @@ img { max-width: 100%; display: block; }
 .proof-num small { font-size: 15px; margin-left: 2px; }
 .proof-desc { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin-top: 4px; }
 
+/* 1カラムのヒーロー（startup） */
+.hero-main { max-width: 760px; }
+.hero-offer { margin-top: 48px; max-width: 760px; }
+.hero-offer .btn { width: auto; }
+
 @media (max-width: 900px) {
   .hero { padding: 40px 0 40px; }
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -160,6 +165,8 @@ img { max-width: 100%; display: block; }
 .pain-close { margin-top: 32px; font-size: 18px; font-weight: 600; }
 .pain-close em { font-style: normal; color: var(--accent); }
 @media (max-width: 720px) { .pain-grid { grid-template-columns: 1fr; } }
+.pain-grid.three { grid-template-columns: 1fr; max-width: 760px; }
+@media (max-width: 900px) { .pain-grid.three { grid-template-columns: 1fr; } }
 
 /* ---------- ステップ（やること） ---------- */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--rule); background: var(--bg-card); }
@@ -180,11 +187,29 @@ img { max-width: 100%; display: block; }
   .strengths { grid-template-columns: 1fr; }
 }
 
+/* 上から下に読むステップ（startup）：左に見出し、右に中身 */
+.steps-v { grid-template-columns: 1fr; border: none; background: none; gap: 28px; }
+.steps-v .step { display: grid; grid-template-columns: 180px 1fr; gap: 32px; background: var(--bg-card); border: 1px solid var(--rule); position: relative; }
+.steps-v .step:last-child { border: 1px solid var(--rule); }
+.steps-v .step:not(:last-child)::after {
+  content: ""; position: absolute; left: 50%; bottom: -21px; transform: translateX(-50%);
+  border: 10px solid transparent; border-top: 12px solid var(--accent); border-bottom: none;
+}
+.steps-v .step-head { border-right: 1px solid var(--rule-soft); }
+.steps-v .step h3 { margin-bottom: 0; }
+.steps-v .step ul { margin-top: 10px; }
+@media (max-width: 720px) {
+  .steps-v .step { grid-template-columns: 1fr; gap: 8px; padding: 24px 20px; }
+  .steps-v .step-head { border-right: none; }
+}
+
 /* ---------- 無料オファー詳細 ---------- */
 .offer-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
 .offer-detail .offer-list li { font-size: 15px; }
 .offer-detail p { color: var(--ink-2); }
 @media (max-width: 900px) { .offer-detail { grid-template-columns: 1fr; gap: 24px; } }
+.offer-detail.single { grid-template-columns: 1fr; gap: 32px; max-width: 760px; }
+.offer-detail.single .offer-card .btn { width: auto; }
 
 /* ---------- 事例 ---------- */
 .cases { display: grid; gap: 20px; }
@@ -279,6 +304,9 @@ img { max-width: 100%; display: block; }
 .contact-box { background: var(--bg-card); color: var(--ink); padding: 40px; margin-top: 8px; }
 .contact-alt { margin-top: 24px; font-size: 14px; color: rgba(255,255,255,.85); }
 .contact-alt a { color: #fff; }
+.contact-faq { margin-top: 72px; }
+.contact-faq h3 { font-size: 22px; margin-bottom: 20px; }
+.contact-faq .faq details { color: var(--ink); border-color: transparent; }
 @media (max-width: 720px) {
   .contact { padding: 64px 0; }
   .contact-box { padding: 20px 12px; }
