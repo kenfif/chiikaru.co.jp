@@ -170,6 +170,7 @@ img { max-width: 100%; display: block; }
   .hero-cta .text-link { margin: 8px auto 0; }
 }
 @media (max-width: 560px) {
+  .hero-main h1 { font-size: 32px; }
   .hero-offer { padding: 20px; margin-top: 40px; }
   .hero-offer-list > div { grid-template-columns: 4em 1fr; gap: 12px; }
   .hero-offer .btn { width: 100%; }
