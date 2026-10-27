@@ -135,19 +135,44 @@ img { max-width: 100%; display: block; }
 .btn-lg { padding: 20px 36px; font-size: 16px; }
 .text-link { font-size: 14px; font-weight: 600; color: var(--accent); text-underline-offset: 4px; }
 .hero-cta .text-link { margin-left: 12px; }
-.hero-offer { margin-top: 56px; background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 24px 28px; }
-.hero-offer-head { font-weight: 600; font-size: 15px; margin-bottom: 16px; }
-.hero-offer-head .offer-badge { margin: 0 12px 0 0; vertical-align: 1px; }
-.hero-offer-list { display: grid; grid-template-columns: 2fr 2fr 1fr 1fr; gap: 20px; }
-.hero-offer-list dt { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 2px; }
-.hero-offer-list dd { font-size: 14px; color: var(--ink-2); line-height: 1.7; }
+.hero-offer { margin-top: 56px; background: var(--bg-card); color: var(--ink); border-top: 4px solid var(--accent); padding: 28px 32px; }
+.hero-offer-head { font-weight: 700; font-size: 17px; line-height: 1.6; margin-bottom: 12px; }
+.hero-offer-head .offer-badge { margin: 0 12px 0 0; vertical-align: 2px; }
+.hero-offer-list { border-top: 1px solid var(--rule-soft); }
+.hero-offer-list > div { display: grid; grid-template-columns: 6em 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule-soft); }
+.hero-offer-list dt { font-size: 13px; color: var(--accent); font-weight: 600; }
+.hero-offer-list dd { font-size: 14.5px; color: var(--ink-2); }
+.hero-offer .btn { margin-top: 20px; }
+
+/* ファーストビューの背景（startup）：濃い緑＋細い方眼 */
+.hero-dark {
+  color: #fff; border-bottom: none;
+  background-color: var(--accent-deep);
+  background-image:
+    radial-gradient(circle at 85% 15%, rgba(143, 209, 174, 0.20), transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
+.hero-dark .eyebrow { color: #CFE3D8; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.25); }
+.hero-dark h1 em { color: #8FD1AE; }
+.hero-dark .hero-main .hero-lead { color: rgba(255, 255, 255, 0.85); max-width: 46em; }
+@media (max-width: 900px) { br.pc { display: none; } }
+.hero-dark .hp-item + .hp-item { border-color: rgba(255, 255, 255, 0.25); }
+.hero-dark .hp-item .label { color: rgba(255, 255, 255, 0.7); }
+.hero-dark .hp-item .value { color: rgba(255, 255, 255, 0.9); }
+.hero-dark .hp-item.main .value { color: #8FD1AE; }
+.hero-dark .price-note { color: rgba(255, 255, 255, 0.6); }
+.hero-dark .hero-cta .btn { background: #fff; color: var(--accent-deep); border-color: #fff; }
+.hero-dark .hero-cta .btn:hover { background: var(--accent-soft); }
+.hero-dark .text-link { color: #fff; }
 @media (max-width: 900px) {
-  .hero-offer-list { grid-template-columns: 1fr 1fr; }
   .hero-cta .text-link { margin: 8px auto 0; }
 }
 @media (max-width: 560px) {
   .hero-offer { padding: 20px; margin-top: 40px; }
-  .hero-offer-list { grid-template-columns: 1fr; gap: 12px; }
+  .hero-offer-list > div { grid-template-columns: 4em 1fr; gap: 12px; }
+  .hero-offer .btn { width: 100%; }
   .hp-item + .hp-item { padding-left: 0; border-left: none; }
   .hp-item.main .value b { font-size: 44px; }
 }
