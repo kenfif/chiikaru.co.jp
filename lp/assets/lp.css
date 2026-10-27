@@ -121,10 +121,36 @@ img { max-width: 100%; display: block; }
 .proof-num small { font-size: 15px; margin-left: 2px; }
 .proof-desc { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin-top: 4px; }
 
-/* 1カラムのヒーロー（startup） */
-.hero-main { max-width: 760px; }
-.hero-offer { margin-top: 48px; max-width: 760px; }
-.hero-offer .btn { width: auto; }
+/* 1カラムのヒーロー（startup）：見出し → 価格 → 予約ボタン → 無料相談の概要 の順に強弱をつける */
+.hero-main h1 { font-size: clamp(36px, 6vw, 68px); line-height: 1.25; margin-bottom: 28px; }
+.hero-main .hero-lead { font-size: 17px; color: var(--ink-3); margin-bottom: 36px; }
+.hero-price { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 32px; margin-bottom: 36px; }
+.hp-item { line-height: 1.2; }
+.hp-item + .hp-item { padding-left: 32px; border-left: 1px solid var(--rule); }
+.hp-item .label { display: block; font-size: 13px; color: var(--ink-3); margin-bottom: 6px; }
+.hp-item .value { font-weight: 700; font-size: 18px; color: var(--ink-2); }
+.hp-item .value b { font-size: 32px; margin: 0 2px; }
+.hp-item.main .value { color: var(--accent); font-size: 22px; }
+.hp-item.main .value b { font-size: 52px; letter-spacing: -0.02em; }
+.btn-lg { padding: 20px 36px; font-size: 16px; }
+.text-link { font-size: 14px; font-weight: 600; color: var(--accent); text-underline-offset: 4px; }
+.hero-cta .text-link { margin-left: 12px; }
+.hero-offer { margin-top: 56px; background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 24px 28px; }
+.hero-offer-head { font-weight: 600; font-size: 15px; margin-bottom: 16px; }
+.hero-offer-head .offer-badge { margin: 0 12px 0 0; vertical-align: 1px; }
+.hero-offer-list { display: grid; grid-template-columns: 2fr 2fr 1fr 1fr; gap: 20px; }
+.hero-offer-list dt { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 2px; }
+.hero-offer-list dd { font-size: 14px; color: var(--ink-2); line-height: 1.7; }
+@media (max-width: 900px) {
+  .hero-offer-list { grid-template-columns: 1fr 1fr; }
+  .hero-cta .text-link { margin: 8px auto 0; }
+}
+@media (max-width: 560px) {
+  .hero-offer { padding: 20px; margin-top: 40px; }
+  .hero-offer-list { grid-template-columns: 1fr; gap: 12px; }
+  .hp-item + .hp-item { padding-left: 0; border-left: none; }
+  .hp-item.main .value b { font-size: 44px; }
+}
 
 @media (max-width: 900px) {
   .hero { padding: 40px 0 40px; }
@@ -165,7 +191,7 @@ img { max-width: 100%; display: block; }
 .pain-close { margin-top: 32px; font-size: 18px; font-weight: 600; }
 .pain-close em { font-style: normal; color: var(--accent); }
 @media (max-width: 720px) { .pain-grid { grid-template-columns: 1fr; } }
-.pain-grid.three { grid-template-columns: 1fr; max-width: 760px; }
+.pain-grid.three { grid-template-columns: 1fr; }
 @media (max-width: 900px) { .pain-grid.three { grid-template-columns: 1fr; } }
 
 /* ---------- ステップ（やること） ---------- */
