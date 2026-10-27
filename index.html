@@ -330,6 +330,99 @@
     .whatwedo-grid { grid-template-columns: 1fr; }
   }
 
+
+  /* ============ PLANS ============ */
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .plan-card {
+    background: var(--bg-card);
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 44px 36px 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .plan-card.featured { outline: 2px solid var(--accent); outline-offset: -2px; z-index: 1; }
+  .plan-badge {
+    position: absolute; top: 0; right: 0;
+    background: var(--accent); color: #fff;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    padding: 4px 12px;
+  }
+  .plan-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; color: var(--accent);
+    letter-spacing: 0.2em; margin-bottom: 18px; font-weight: 500;
+  }
+  .plan-name { font-size: 20px; font-weight: 600; line-height: 1.5; margin-bottom: 8px; }
+  .plan-for { font-size: 13.5px; color: var(--ink-3); line-height: 1.8; min-height: 3.6em; }
+  .plan-price {
+    margin: 24px 0; padding: 20px 0;
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    line-height: 1.2;
+  }
+  .plan-price .yen { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; }
+  .plan-card.featured .plan-price .yen { color: var(--accent); }
+  .plan-price .unit { font-size: 14px; font-weight: 500; margin-left: 4px; color: var(--ink-3); }
+  .plan-list { list-style: none; font-size: 14px; display: grid; gap: 8px; flex-grow: 1; align-content: start; }
+  .plan-list li { padding-left: 1.4em; position: relative; }
+  .plan-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  .plan-foot { margin-top: 24px; font-size: 12.5px; color: var(--ink-3); background: var(--bg-soft); padding: 12px 14px; line-height: 1.7; }
+  .plan-notes { margin-top: 24px; list-style: none; font-size: 13px; color: var(--ink-3); display: grid; gap: 4px; }
+  @media (max-width: 880px) {
+    .plans-grid { grid-template-columns: 1fr; }
+    .plan-for { min-height: 0; }
+  }
+
+  .examples { margin-top: 96px; }
+  .examples-head {
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .examples-head .label {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500;
+  }
+  .examples-head h3 { font-size: clamp(20px, 2.4vw, 26px); font-weight: 600; letter-spacing: -0.005em; }
+  .services-grid.two { grid-template-columns: repeat(2, 1fr); }
+  .services-grid.two .service-card { min-height: 0; }
+  @media (max-width: 880px) {
+    .services-grid.two { grid-template-columns: 1fr; }
+  }
+
+  /* ============ CASES ============ */
+  .cases-list { display: grid; gap: 20px; }
+  .case-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+  }
+  .case-result {
+    background: var(--accent); color: #fff;
+    padding: 32px 28px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .case-result .num { font-size: 30px; font-weight: 700; line-height: 1.3; }
+  .case-result .num small { font-size: 15px; }
+  .case-result .sub { font-size: 13px; opacity: 0.85; margin-top: 6px; line-height: 1.6; }
+  .case-body { padding: 32px 36px; }
+  .case-tag { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+  .case-body h3 { font-size: 18px; font-weight: 600; line-height: 1.55; margin-bottom: 14px; }
+  .case-rows { display: grid; gap: 8px; }
+  .case-row { display: grid; grid-template-columns: 3.5em 1fr; gap: 12px; font-size: 14px; }
+  .case-row .k { color: var(--ink-4); font-size: 13px; }
+  .case-note { margin-top: 12px; font-size: 12px; color: var(--ink-4); }
+  @media (max-width: 720px) {
+    .case-card { grid-template-columns: 1fr; }
+    .case-body { padding: 24px 22px; }
+  }
+
   /* ============ COMPANY ============ */
   .company {
     background: var(--ink);
@@ -460,7 +553,7 @@
       </div>
     </div>
     <a href="#services" class="topbar-cta">
-      サービス一覧
+      料金・支援内容
       <span class="arrow">→</span>
     </a>
   </div>
@@ -484,56 +577,95 @@
   </div>
 </section>
 
-<!-- ===== SERVICES (LP CARDS) ===== -->
+<!-- ===== PLANS ===== -->
 <section id="services">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">01<span class="section-num-label">Services</span></div>
+      <div class="section-num">01<span class="section-num-label">Plans</span></div>
       <h2 class="section-title">
-        <span class="en">Three ways we engage.</span>
-        貴社のフェーズに合わせた、<br>3つのご支援。
+        <span class="en">Three plans, one team.</span>
+        料金プラン
       </h2>
     </div>
 
-    <div class="services-grid reveal">
-      <a href="/lp/startup/" class="service-card">
-        <div class="service-num">CASE / 01</div>
-        <div class="service-target">For Growth-Stage Startups</div>
-        <h3 class="service-title">成長フェーズの開発を、<br>最短距離で動かす</h3>
-        <p class="service-desc">
-          メガベンチャー出身PMと、事業売却経験を持つエンジニア。少数精鋭の内製チームが、戦略設計から開発・グロースまで一気通貫で並走します。
-        </p>
-        <span class="service-link">
-          スタートアップ向けLPを見る
-          <span class="arrow">→</span>
-        </span>
-      </a>
+    <div class="plans-grid reveal">
+      <div class="plan-card">
+        <div class="plan-num">PLAN / 01</div>
+        <h3 class="plan-name">PdM代行</h3>
+        <p class="plan-for">開発チームは社内や外注先にいるが、決めて進める人がいない</p>
+        <div class="plan-price"><span class="yen">20万円〜</span><span class="unit">／月</span></div>
+        <ul class="plan-list">
+          <li>構想・課題の整理</li>
+          <li>要件定義と優先順位づけ</li>
+          <li>予算に合わせたロードマップ</li>
+          <li>開発チームのディレクション</li>
+          <li>2週間ごとの振り返り</li>
+        </ul>
+        <p class="plan-foot">PdM1名が稼働します。エンジニアの稼働が必要な場合は別途お見積もりします。</p>
+      </div>
+      <div class="plan-card featured">
+        <span class="plan-badge">おすすめ</span>
+        <div class="plan-num">PLAN / 02</div>
+        <h3 class="plan-name">PdM＋開発チームセット</h3>
+        <p class="plan-for">社内に開発チームがない。決めるところから作るところまで任せたい</p>
+        <div class="plan-price"><span class="yen">35万円〜</span><span class="unit">／月</span></div>
+        <ul class="plan-list">
+          <li>PdM代行の内容すべて</li>
+          <li>設計・開発・テスト</li>
+          <li>生成AIを使った開発</li>
+          <li>リリース後の改善</li>
+        </ul>
+        <p class="plan-foot">PdMと開発が同じチームなので、決めたことがそのまま形になります。</p>
+      </div>
+      <div class="plan-card">
+        <div class="plan-num">PLAN / 03</div>
+        <h3 class="plan-name">受託開発</h3>
+        <p class="plan-for">作るものは決まっていて、開発の手が足りない</p>
+        <div class="plan-price"><span class="yen">15万円〜</span><span class="unit">／月</span></div>
+        <ul class="plan-list">
+          <li>機能単位の開発</li>
+          <li>既存システムの改修</li>
+          <li>単独でも、ほかのプランへの追加でも</li>
+        </ul>
+      </div>
+    </div>
+    <ul class="plan-notes">
+      <li>※表示はすべて税別の月額です。</li>
+      <li>※最低契約期間は3か月です。</li>
+      <li>※支援の範囲や稼働量に応じてお見積もりします。</li>
+    </ul>
 
-      <a href="/lp/dx/" class="service-card">
-        <div class="service-num">CASE / 02</div>
-        <div class="service-target">For Established Enterprises</div>
-        <h3 class="service-title">現場の負担を増やさず、<br>着実に進めるDX</h3>
-        <p class="service-desc">
-          業務工数50%削減の実績を持つPMが、アジャイルで小さな改善を積み重ねるアプローチでDX化を設計。中堅・老舗企業の停滞を、無理なく動かします。
-        </p>
-        <span class="service-link">
-          DX推進向けLPを見る
-          <span class="arrow">→</span>
-        </span>
-      </a>
-
-      <a href="/lp/product/" class="service-card">
-        <div class="service-num">CASE / 03</div>
-        <div class="service-target">For Mature Products</div>
-        <h3 class="service-title">開発を加速させ、<br>事業を伸ばす両方に責任を</h3>
-        <p class="service-desc">
-          AIをフル活用した開発スピードと、メガベンチャーで培ったグロースの知見。既存ベンダーとの並走から、スポット依頼、UX・マーケまでの一気通貫対応まで柔軟に。
-        </p>
-        <span class="service-link">
-          プロダクト運営向けLPを見る
-          <span class="arrow">→</span>
-        </span>
-      </a>
+    <div class="examples">
+      <div class="examples-head">
+        <span class="label">Examples</span>
+        <h3>例えば、こんなことを支援します</h3>
+      </div>
+      <div class="services-grid two reveal">
+        <a href="/lp/startup/" class="service-card">
+          <div class="service-num">EXAMPLE / 01</div>
+          <div class="service-target">New Business / PoC / Generative AI</div>
+          <h3 class="service-title">新規事業の構想を、<br>動き出す計画に</h3>
+          <p class="service-desc">
+            何から作るか、どの順番で、いくらで。新規事業の立ち上げや生成AI活用の構想を整理し、要件定義、PoC、開発まで伴走します。まずは30分の無料相談から。
+          </p>
+          <span class="service-link">
+            新規事業の支援内容を見る
+            <span class="arrow">→</span>
+          </span>
+        </a>
+        <a href="/lp/product-check/" class="service-card">
+          <div class="service-num">EXAMPLE / 02</div>
+          <div class="service-target">Existing Products / Services</div>
+          <h3 class="service-title">既存サービスの事業課題を整理して、<br>前に進める</h3>
+          <p class="service-desc">
+            どこに伸び代があり、どこにコストがかかっているのか。現状の棚卸しから課題の優先順位づけ、改善の実行まで伴走します。無料の「プロダクト健康診断レポート」も実施中です。
+          </p>
+          <span class="service-link">
+            既存サービスの支援内容を見る
+            <span class="arrow">→</span>
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -545,7 +677,7 @@
       <div class="section-num">02<span class="section-num-label">What We Do</span></div>
       <h2 class="section-title">
         <span class="en">Four areas, one team.</span>
-        対応領域。
+        対応領域
       </h2>
     </div>
 
@@ -582,14 +714,78 @@
   </div>
 </section>
 
+<!-- ===== CASES ===== -->
+<section class="cases">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">03<span class="section-num-label">Cases</span></div>
+      <h2 class="section-title">
+        <span class="en">Selected work.</span>
+        支援事例
+      </h2>
+    </div>
+
+    <div class="cases-list reveal">
+      <article class="case-card">
+        <div class="case-result">
+          <div class="num">外注ゼロへ</div>
+          <div class="sub">内製化を実現し、AI駆動開発ができる体制に</div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">SIer様｜AI導入・内製化支援｜1年</div>
+          <h3>顧客からの「AIを入れたい」を、予算内のロードマップに落として推進</h3>
+          <div class="case-rows">
+            <div class="case-row"><span class="k">課題</span><span>クライアントからAI導入を求められたが、限られた予算の中で何から進めるかが決まっていなかった</span></div>
+            <div class="case-row"><span class="k">対応</span><span>PdMとして課題を引き出して要件を定義し、予算に合わせたロードマップを策定。開発チームをディレクションし、先方チームが自ら優先順位をつけられるよう支援</span></div>
+            <div class="case-row"><span class="k">成果</span><span>生産性が向上し、外部に依頼していた開発が不要に。AI駆動開発ができる体制になった</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-result">
+          <div class="num">リード3<small>倍</small></div>
+          <div class="sub">新規ユーザー数も2倍（200%）に</div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">BtoBメーカー様｜リード獲得支援（SEO・AIO）｜約1年</div>
+          <h3>SEOをしても問い合わせがゼロだった状態から、改善を回し続けてリード3倍</h3>
+          <div class="case-rows">
+            <div class="case-row"><span class="k">課題</span><span>SEO施策を実施していたが、リードがまったく獲得できていなかった</span></div>
+            <div class="case-row"><span class="k">対応</span><span>SEO・AIO、コンテンツの見直し、ヒアリング設計を含むユーザー調査を、2週間ごとの振り返りで回し続けた</span></div>
+            <div class="case-row"><span class="k">成果</span><span>リード獲得数が3倍に増え、新規ユーザー数は2倍（200%）に</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-result">
+          <div class="num">工数半減</div>
+          <div class="sub">1年で作業効率が50%改善</div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">業務システム（CRM）の改善｜1年</div>
+          <h3>複雑になりすぎた業務システムを、優先順位をつけて立て直し</h3>
+          <div class="case-rows">
+            <div class="case-row"><span class="k">課題</span><span>システムが肥大化して作業が難しくなり、担当者の残業が常態化していた</span></div>
+            <div class="case-row"><span class="k">対応</span><span>業務フローとシステムの課題を洗い出し、優先順位をつけて順に改善</span></div>
+            <div class="case-row"><span class="k">成果</span><span>1年間で作業工数を半減</span></div>
+          </div>
+          <p class="case-note">※代表・川島が前職で担当した事例です。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ===== COMPANY ===== -->
 <section class="company">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">03<span class="section-num-label">Company</span></div>
+      <div class="section-num">04<span class="section-num-label">Company</span></div>
       <h2 class="section-title">
         <span class="en">About us.</span>
-        会社概要。
+        会社概要
       </h2>
     </div>
 
@@ -618,7 +814,7 @@
       </div>
       <div class="company-row">
         <dt>所在地</dt>
-        <dd>東京都</dd>
+        <dd>東京都渋谷区幡ヶ谷2-3-4</dd>
       </div>
     </dl>
   </div>
