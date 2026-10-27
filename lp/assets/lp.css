@@ -1,0 +1,291 @@
+/* =========================================================
+   LP 共通スタイル（/lp/startup/・/lp/product-check/）
+   ========================================================= */
+:root {
+  --bg: #FAFAF7;
+  --bg-soft: #F1EFE8;
+  --bg-card: #FFFFFF;
+  --ink: #0E0E0C;
+  --ink-2: #2A2A28;
+  --ink-3: #5C5C58;
+  --ink-4: #8E8E88;
+  --rule: #DCD9D0;
+  --rule-soft: #EAE7DE;
+  --accent: #1F4E3D;
+  --accent-deep: #133A2C;
+  --accent-soft: #E5EDE8;
+  --accent-line: #B7C9C0;
+  --max-w: 1120px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+::selection { background: var(--accent); color: var(--bg); }
+
+body {
+  font-family: "IBM Plex Sans JP", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.85;
+  font-size: 15.5px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  letter-spacing: 0.01em;
+}
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+@media (max-width: 720px) { .container { padding: 0 16px; } }
+
+/* ---------- ボタン ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px 28px;
+  background: var(--accent); color: #fff;
+  font-weight: 600; font-size: 15px; text-decoration: none;
+  border: 1px solid var(--accent);
+  transition: background .2s;
+}
+.btn:hover { background: var(--accent-deep); }
+.btn .arrow { transition: transform .2s; }
+.btn:hover .arrow { transform: translateX(3px); }
+.btn-ghost { background: transparent; color: var(--accent); }
+.btn-ghost:hover { background: var(--accent-soft); }
+
+/* ---------- ヘッダー ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 250, 247, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-mark { width: 22px; height: 22px; background: var(--accent); flex-shrink: 0; }
+.brand-name { font-weight: 600; font-size: 14px; line-height: 1.3; }
+.brand-name .en { display: block; font-family: "IBM Plex Sans", sans-serif; font-size: 11px; font-weight: 400; color: var(--ink-4); }
+.topbar .btn { padding: 10px 18px; font-size: 13px; white-space: nowrap; }
+.nw { display: inline-block; }
+@media (max-width: 720px) {
+  .brand-name .en { display: none; }
+  .brand-name { font-size: 12px; }
+  .topbar .btn { padding: 8px 12px; font-size: 12px; }
+}
+
+/* ---------- ヒーロー ---------- */
+.hero { padding: 72px 0 56px; border-bottom: 1px solid var(--rule-soft); }
+.hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: start; }
+.eyebrow {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  border: 1px solid var(--accent-line);
+  background: var(--accent-soft);
+  padding: 4px 12px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-weight: 700;
+  font-size: clamp(32px, 4.8vw, 52px);
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-lead { font-size: 16.5px; color: var(--ink-2); margin-bottom: 28px; max-width: 34em; }
+.price-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+.price-chip { border: 1px solid var(--rule); background: var(--bg-card); padding: 12px 18px; line-height: 1.4; }
+.price-chip .label { display: block; font-size: 12px; color: var(--ink-3); }
+.price-chip .value { font-weight: 700; font-size: 22px; }
+.price-chip .value small { font-size: 13px; font-weight: 500; margin-left: 2px; }
+.price-chip.main { border-color: var(--accent); }
+.price-chip.main .value { color: var(--accent); }
+.price-note { font-size: 12px; color: var(--ink-4); align-self: flex-end; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+.offer-card { background: var(--bg-card); border: 1px solid var(--rule); border-top: 4px solid var(--accent); padding: 32px; }
+.offer-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; padding: 3px 10px; margin-bottom: 14px; }
+.offer-card h2 { font-size: 20px; line-height: 1.5; margin-bottom: 18px; }
+.offer-list { list-style: none; border-top: 1px solid var(--rule-soft); }
+.offer-list li { display: grid; grid-template-columns: 5.5em 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule-soft); font-size: 14px; }
+.offer-list .k { color: var(--ink-3); font-size: 13px; }
+.offer-card .btn { width: 100%; margin-top: 22px; }
+
+.proof { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--rule); background: var(--bg-card); }
+.proof-item { padding: 22px 24px; border-right: 1px solid var(--rule-soft); }
+.proof-item:last-child { border-right: none; }
+.proof-num { font-weight: 700; font-size: 28px; color: var(--accent); line-height: 1.3; }
+.proof-num small { font-size: 15px; margin-left: 2px; }
+.proof-desc { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin-top: 4px; }
+
+@media (max-width: 900px) {
+  .hero { padding: 40px 0 40px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .offer-card { padding: 24px 20px; }
+  .proof { grid-template-columns: 1fr; margin-top: 36px; }
+  .proof-item { border-right: none; border-bottom: 1px solid var(--rule-soft); }
+  .proof-item:last-child { border-bottom: none; }
+  .hero-cta .btn { width: 100%; }
+}
+
+/* ---------- セクション共通 ---------- */
+.section { padding: 96px 0; border-bottom: 1px solid var(--rule-soft); }
+.section.soft { background: var(--bg-soft); }
+.section-head { margin-bottom: 48px; max-width: 760px; }
+.section-label {
+  font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.12em;
+  color: var(--accent); text-transform: uppercase; margin-bottom: 12px;
+}
+.section-title { font-size: clamp(24px, 3.2vw, 34px); font-weight: 700; line-height: 1.45; }
+.section-desc { margin-top: 16px; color: var(--ink-3); }
+@media (max-width: 720px) {
+  .section { padding: 64px 0; }
+  .section-head { margin-bottom: 32px; }
+}
+
+/* ---------- お悩み ---------- */
+.pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.pain { background: var(--bg-card); border: 1px solid var(--rule); padding: 22px 24px 22px 56px; position: relative; font-weight: 500; }
+.pain::before {
+  content: ""; position: absolute; left: 22px; top: 27px;
+  width: 16px; height: 16px; border: 2px solid var(--accent);
+}
+.pain::after {
+  content: ""; position: absolute; left: 27px; top: 29px;
+  width: 6px; height: 10px; border: solid var(--accent); border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.pain-close { margin-top: 32px; font-size: 18px; font-weight: 600; }
+.pain-close em { font-style: normal; color: var(--accent); }
+@media (max-width: 720px) { .pain-grid { grid-template-columns: 1fr; } }
+
+/* ---------- ステップ（やること） ---------- */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--rule); background: var(--bg-card); }
+.step { padding: 32px 28px; border-right: 1px solid var(--rule-soft); }
+.step:last-child { border-right: none; }
+.step-num { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.1em; }
+.step h3 { font-size: 22px; margin: 6px 0 12px; }
+.step p { font-size: 14.5px; color: var(--ink-2); }
+.step ul { margin-top: 14px; padding-left: 1.1em; font-size: 14px; color: var(--ink-3); }
+.strengths { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.strength { border-left: 3px solid var(--accent); padding: 4px 0 4px 18px; }
+.strength h3 { font-size: 16px; margin-bottom: 6px; }
+.strength p { font-size: 14px; color: var(--ink-3); }
+@media (max-width: 900px) {
+  .steps { grid-template-columns: 1fr; }
+  .step { border-right: none; border-bottom: 1px solid var(--rule-soft); }
+  .step:last-child { border-bottom: none; }
+  .strengths { grid-template-columns: 1fr; }
+}
+
+/* ---------- 無料オファー詳細 ---------- */
+.offer-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.offer-detail .offer-list li { font-size: 15px; }
+.offer-detail p { color: var(--ink-2); }
+@media (max-width: 900px) { .offer-detail { grid-template-columns: 1fr; gap: 24px; } }
+
+/* ---------- 事例 ---------- */
+.cases { display: grid; gap: 20px; }
+.case { background: var(--bg-card); border: 1px solid var(--rule); display: grid; grid-template-columns: 240px 1fr; }
+.case-result { background: var(--accent); color: #fff; padding: 28px 24px; display: flex; flex-direction: column; justify-content: center; }
+.case-result .num { font-size: 30px; font-weight: 700; line-height: 1.3; }
+.case-result .num small { font-size: 15px; }
+.case-result .sub { font-size: 13px; opacity: .85; margin-top: 6px; line-height: 1.6; }
+.case-body { padding: 28px 32px; }
+.case-tag { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+.case-body h3 { font-size: 18px; line-height: 1.5; margin-bottom: 14px; }
+.case-rows { display: grid; gap: 8px; }
+.case-row { display: grid; grid-template-columns: 3.5em 1fr; gap: 12px; font-size: 14px; }
+.case-row .k { color: var(--ink-4); font-size: 13px; }
+.case-note { margin-top: 12px; font-size: 12px; color: var(--ink-4); }
+@media (max-width: 720px) {
+  .case { grid-template-columns: 1fr; }
+  .case-body { padding: 22px 20px; }
+}
+
+/* ---------- 比較表 ---------- */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--rule); background: var(--bg-card); }
+.compare { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; }
+.compare th, .compare td { padding: 16px 18px; border-bottom: 1px solid var(--rule-soft); text-align: left; vertical-align: top; }
+.compare thead th { background: var(--bg-soft); font-size: 13px; font-weight: 600; }
+.compare tbody th { font-weight: 600; width: 22%; }
+.compare .ours { background: var(--accent-soft); }
+.compare thead .ours { background: var(--accent); color: #fff; }
+.compare .mark { font-weight: 700; margin-right: 4px; }
+.compare .ours .mark { color: var(--accent); }
+.compare tr:last-child th, .compare tr:last-child td { border-bottom: none; }
+.table-note { margin-top: 12px; font-size: 12px; color: var(--ink-4); }
+.scroll-hint { display: none; font-size: 12px; color: var(--ink-4); margin-bottom: 8px; }
+@media (max-width: 720px) { .scroll-hint { display: block; } }
+
+/* ---------- 料金 ---------- */
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+.plan { background: var(--bg-card); border: 1px solid var(--rule); padding: 32px 28px; display: flex; flex-direction: column; position: relative; }
+.plan.featured { border: 2px solid var(--accent); }
+.plan-badge { position: absolute; top: -13px; left: 28px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; padding: 3px 12px; }
+.plan h3 { font-size: 18px; margin-bottom: 4px; }
+.plan-for { font-size: 13px; color: var(--ink-3); min-height: 3.2em; }
+.plan-price { margin: 18px 0; padding: 16px 0; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+.plan-price .yen { font-size: 34px; font-weight: 700; line-height: 1.2; }
+.plan.featured .plan-price .yen { color: var(--accent); }
+.plan-price .unit { font-size: 14px; font-weight: 500; margin-left: 4px; }
+.plan ul { list-style: none; font-size: 14px; display: grid; gap: 8px; flex-grow: 1; }
+.plan li { padding-left: 1.4em; position: relative; }
+.plan li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+.plan-foot { margin-top: 18px; font-size: 12.5px; color: var(--ink-3); background: var(--bg-soft); padding: 10px 12px; }
+.plan-notes { margin-top: 24px; font-size: 13px; color: var(--ink-3); list-style: none; display: grid; gap: 4px; }
+@media (max-width: 900px) {
+  .plans { grid-template-columns: 1fr; gap: 28px; }
+  .plan-for { min-height: 0; }
+}
+
+/* ---------- 進め方 ---------- */
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: flow; list-style: none; }
+.flow li { background: var(--bg-card); border: 1px solid var(--rule); padding: 24px 22px; counter-increment: flow; }
+.flow li::before { content: "0" counter(flow); font-family: "IBM Plex Mono", monospace; color: var(--accent); font-size: 13px; display: block; margin-bottom: 6px; }
+.flow h3 { font-size: 16px; margin-bottom: 6px; }
+.flow p { font-size: 13.5px; color: var(--ink-3); }
+@media (max-width: 900px) { .flow { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } }
+
+/* ---------- チーム ---------- */
+.team { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.team-list { list-style: none; display: grid; gap: 14px; }
+.team-list li { background: var(--bg-card); border: 1px solid var(--rule); padding: 18px 22px; }
+.team-list strong { display: block; font-size: 15px; margin-bottom: 2px; }
+.team-list span { font-size: 14px; color: var(--ink-3); }
+@media (max-width: 900px) { .team { grid-template-columns: 1fr; gap: 24px; } }
+
+/* ---------- FAQ ---------- */
+.faq { display: grid; gap: 12px; max-width: 860px; }
+.faq details { background: var(--bg-card); border: 1px solid var(--rule); }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 56px 20px 24px; font-weight: 600; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 300; color: var(--accent); }
+.faq details[open] summary::after { content: "−"; }
+.faq .answer { padding: 0 24px 22px; color: var(--ink-2); font-size: 14.5px; }
+
+/* ---------- 制作会社・代理店の方へ ---------- */
+.partner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; border: 1px dashed var(--accent-line); background: var(--bg-card); padding: 28px 32px; }
+.partner h3 { font-size: 17px; margin-bottom: 4px; }
+.partner p { font-size: 14px; color: var(--ink-3); }
+
+/* ---------- 予約 ---------- */
+.contact { padding: 96px 0; background: var(--accent-deep); color: #fff; }
+.contact .section-label { color: var(--accent-line); }
+.contact .section-desc { color: rgba(255,255,255,.8); }
+.contact-box { background: var(--bg-card); color: var(--ink); padding: 40px; margin-top: 8px; }
+.contact-alt { margin-top: 24px; font-size: 14px; color: rgba(255,255,255,.85); }
+.contact-alt a { color: #fff; }
+@media (max-width: 720px) {
+  .contact { padding: 64px 0; }
+  .contact-box { padding: 20px 12px; }
+}
+
+/* ---------- フッター ---------- */
+footer { padding: 48px 0; background: var(--ink); color: rgba(255,255,255,.7); font-size: 13px; }
+.footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; }
+.footer-name { color: #fff; font-weight: 600; font-size: 15px; }
+.footer-en { font-family: "IBM Plex Sans", sans-serif; font-size: 12px; margin-bottom: 10px; }
