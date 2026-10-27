@@ -343,6 +343,7 @@ img { max-width: 100%; display: block; }
 .faq summary::after { content: "+"; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 300; color: var(--accent); }
 .faq details[open] summary::after { content: "−"; }
 .faq .answer { padding: 0 24px 22px; color: var(--ink-2); font-size: 14.5px; }
+.faq .answer a { color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
 
 /* ---------- 制作会社・代理店の方へ ---------- */
 .partner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; border: 1px dashed var(--accent-line); background: var(--bg-card); padding: 28px 32px; }
