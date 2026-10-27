@@ -102,7 +102,7 @@
 
   /* ============ HERO ============ */
   .hero {
-    padding: 112px 0 104px;
+    padding: 160px 0 150px;
     border-bottom: 1px solid var(--rule);
   }
   .hero-eyebrow {
@@ -333,77 +333,59 @@
 
 
 
-  /* ============ HERO VISUAL（スプリントが進んでいくロードマップ） ============ */
-  .hero-visual {
-    margin-top: 64px;
-    background: var(--bg-card);
-    border: 1px solid var(--rule);
-    padding: 24px 28px 28px;
+
+  /* ============ HERO 背景（方眼＋右肩上がりの階段＋流れる光） ============ */
+  .hero { position: relative; overflow: hidden; }
+  .hero > .container { position: relative; z-index: 1; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(31, 78, 61, 0.10), transparent 42%),
+      radial-gradient(circle at 70% 100%, rgba(183, 201, 192, 0.25), transparent 45%);
   }
-  .hv-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-  .hv-title {
-    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
-    letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3);
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(31, 78, 61, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 78, 61, 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: linear-gradient(100deg, transparent 25%, #000 70%);
+            mask-image: linear-gradient(100deg, transparent 25%, #000 70%);
   }
-  .hv-status {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
-    color: var(--accent); background: var(--accent-soft); padding: 4px 10px;
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    -webkit-mask-image: linear-gradient(100deg, transparent 38%, #000 72%);
+            mask-image: linear-gradient(100deg, transparent 38%, #000 72%);
   }
-  .hv-status i, .hv-task.is-doing::before {
-    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
-    animation: hvPulse 1.8s ease-in-out infinite;
-  }
-  .hv-status i { display: inline-block; }
-  .hv-chart { height: 120px; margin: 0 0 12px; }
-  .hv-chart svg { width: 100%; height: 100%; display: block; overflow: visible; }
-  .hv-line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: hvDraw 1.8s 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-  .hv-plan { fill: none; stroke: var(--accent-line); stroke-width: 2; stroke-dasharray: 6 6; opacity: 0; animation: hvFade 0.6s 2.2s forwards; }
-  .hv-area { opacity: 0; animation: hvFade 0.8s 1.6s forwards; }
-  .hv-sprints { display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--rule); }
-  .hv-sprint {
-    padding: 14px 12px 4px; border-right: 1px dashed var(--rule);
-    display: grid; gap: 8px; align-content: start;
-    opacity: 0; animation: hvUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    animation-delay: calc(0.5s + var(--i) * 0.18s);
-  }
-  .hv-sprint:last-child { border-right: none; }
-  .hv-label {
-    font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4);
-    display: flex; align-items: center; gap: 6px;
-    white-space: nowrap;
-  }
-  .hv-label em {
-    font-style: normal; color: #fff; background: var(--accent);
-    padding: 1px 6px; letter-spacing: 0.08em;
-  }
-  .hv-task {
-    font-size: 12.5px; line-height: 1.4; padding: 8px 10px;
-    border: 1px solid var(--rule); background: var(--bg);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .hv-sprint.done .hv-task, .hv-task.is-done { background: var(--accent-soft); border-color: var(--accent-line); color: var(--accent-deep); }
-  .hv-sprint.done .hv-task::before, .hv-task.is-done::before { content: "✓"; font-weight: 700; color: var(--accent); }
-  .hv-sprint.now { background: linear-gradient(var(--accent-soft), transparent 70%); }
-  .hv-task.is-doing { border-color: var(--accent); background: #fff; font-weight: 600; }
-  .hv-task.is-doing::before { content: ""; flex-shrink: 0; }
-  .hv-sprint.next .hv-task { border-style: dashed; color: var(--ink-4); background: transparent; }
-  @keyframes hvDraw { to { stroke-dashoffset: 0; } }
-  @keyframes hvFade { to { opacity: 1; } }
-  @keyframes hvUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-  @keyframes hvPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(31, 78, 61, 0.45); } 50% { box-shadow: 0 0 0 5px rgba(31, 78, 61, 0); } }
-  @media (max-width: 880px) {
-    .hv-sprints { grid-template-columns: repeat(3, 1fr); }
-    .hv-sprint:nth-child(-n+3) { display: none; }
-  }
+  .hero-bg svg { width: 100%; height: 100%; display: block; }
+  .hb-line { fill: none; stroke: var(--accent); stroke-width: 1.5; opacity: 0.35; vector-effect: non-scaling-stroke;
+    stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: hbDraw 2.4s 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+  .hb-pulse { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; vector-effect: non-scaling-stroke;
+    stroke-dasharray: 70 930; stroke-dashoffset: 1000; opacity: 0;
+    animation: hbFlow 6.3s linear infinite; animation-delay: calc(2.4s + var(--d)); }
+  .hb-node { fill: var(--accent); opacity: 0; animation: hbFade 0.6s 2.2s forwards; }
+  .hb-ring { fill: none; stroke: var(--accent); stroke-width: 1.5; transform-box: fill-box; transform-origin: center;
+    opacity: 0; animation: hbRing 2.8s ease-out infinite; animation-delay: calc(2.6s + var(--d)); }
+  @keyframes hbDraw { to { stroke-dashoffset: 0; } }
+  @keyframes hbFade { to { opacity: 0.8; } }
+  @keyframes hbFlow { 0% { stroke-dashoffset: 1000; opacity: 0.9; } 100% { stroke-dashoffset: 0; opacity: 0.9; } }
+  @keyframes hbRing { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(5); opacity: 0; } }
   @media (max-width: 720px) {
-    .hero-visual { margin-top: 44px; padding: 18px 16px 20px; }
-    .hv-chart { height: 90px; }
-    .hv-sprint { padding: 12px 8px 4px; }
-    .hv-task { font-size: 11.5px; padding: 6px 8px; }
-    .hv-label { letter-spacing: 0.04em; font-size: 10px; gap: 4px; }
-    .hv-label em { padding: 0 4px; }
+    .hero-bg, .hero::after {
+      -webkit-mask-image: linear-gradient(180deg, transparent 35%, #000 85%);
+              mask-image: linear-gradient(180deg, transparent 35%, #000 85%);
+    }
+    .hero { padding-bottom: 240px; }
+    .hero-bg svg { position: absolute; right: -8%; bottom: 0; width: 230%; height: auto; }
+    .hero-bg, .hero::after {
+      -webkit-mask-image: linear-gradient(180deg, transparent 55%, #000 85%);
+              mask-image: linear-gradient(180deg, transparent 55%, #000 85%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hb-line { stroke-dashoffset: 0; animation: none; }
+    .hb-node { opacity: 0.8; animation: none; }
+    .hb-pulse, .hb-ring { display: none; }
   }
 
   .strengths .services-grid.two .service-card { min-height: 0; }
@@ -641,6 +623,24 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <svg viewBox="0 0 1200 760" preserveAspectRatio="xMaxYMax slice">
+      <path class="hb-line" d="M-60,640 L180,640 L180,560 L380,560 L380,470 L580,470 L580,370 L780,370 L780,260 L980,260 L980,140 L1260,140" pathLength="1000"/>
+      <path class="hb-line" d="M120,720 L340,720 L340,630 L540,630 L540,540 L740,540 L740,440 L940,440 L940,320 L1140,320 L1140,210 L1260,210" pathLength="1000"/>
+      <path class="hb-line" d="M360,780 L580,780 L580,700 L780,700 L780,610 L980,610 L980,500 L1180,500 L1180,380 L1260,380" pathLength="1000"/>
+      <path class="hb-pulse" style="--d:0.0s" d="M-60,640 L180,640 L180,560 L380,560 L380,470 L580,470 L580,370 L780,370 L780,260 L980,260 L980,140 L1260,140" pathLength="1000"/>
+      <path class="hb-pulse" style="--d:2.1s" d="M120,720 L340,720 L340,630 L540,630 L540,540 L740,540 L740,440 L940,440 L940,320 L1140,320 L1140,210 L1260,210" pathLength="1000"/>
+      <path class="hb-pulse" style="--d:4.2s" d="M360,780 L580,780 L580,700 L780,700 L780,610 L980,610 L980,500 L1180,500 L1180,380 L1260,380" pathLength="1000"/>
+      <circle class="hb-node" cx="580" cy="470" r="4"/>
+      <circle class="hb-ring" style="--d:0.7s" cx="580" cy="470" r="4"/>
+      <circle class="hb-node" cx="780" cy="370" r="4"/>
+      <circle class="hb-ring" style="--d:1.4s" cx="780" cy="370" r="4"/>
+      <circle class="hb-node" cx="980" cy="260" r="4"/>
+      <circle class="hb-ring" style="--d:2.1s" cx="980" cy="260" r="4"/>
+      <circle class="hb-node" cx="1140" cy="320" r="4"/>
+      <circle class="hb-ring" style="--d:2.8s" cx="1140" cy="320" r="4"/>
+    </svg>
+  </div>
   <div class="container">
     <div class="hero-eyebrow reveal">Chiisaku Susumete Ookiku Kaeru, LLC.</div>
     <h1 class="hero-title reveal">
@@ -652,57 +652,6 @@
       <strong>PM・エンジニア・マーケターが一体となった、少数精鋭のIT事業改善チームです。</strong><br>
       戦略設計から開発・グロース・DX推進まで、必要な分だけ入り込み、事業を前に進めます。
     </p>
-
-    <div class="hero-visual reveal" aria-hidden="true">
-      <div class="hv-head">
-        <span class="hv-title">Project roadmap</span>
-        <span class="hv-status"><i></i>On track</span>
-      </div>
-      <div class="hv-chart">
-        <svg viewBox="0 0 600 120" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="hvFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#1F4E3D" stop-opacity="0.18"/>
-              <stop offset="1" stop-color="#1F4E3D" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <path class="hv-area" d="M0,112 H100 V96 H200 V76 H300 V54 H400 V120 H0 Z" fill="url(#hvFill)"/>
-          <path class="hv-line" d="M0,112 H100 V96 H200 V76 H300 V54 H400" vector-effect="non-scaling-stroke"/>
-          <path class="hv-plan" d="M400,54 V36 H500 V18 H600" vector-effect="non-scaling-stroke"/>
-        </svg>
-      </div>
-      <div class="hv-sprints">
-        <div class="hv-sprint done" style="--i:0">
-          <div class="hv-label">Sprint 01</div>
-          <div class="hv-task">課題の整理</div>
-          <div class="hv-task">要件定義</div>
-        </div>
-        <div class="hv-sprint done" style="--i:1">
-          <div class="hv-label">Sprint 02</div>
-          <div class="hv-task">ロードマップ</div>
-          <div class="hv-task">設計</div>
-        </div>
-        <div class="hv-sprint done" style="--i:2">
-          <div class="hv-label">Sprint 03</div>
-          <div class="hv-task">開発</div>
-          <div class="hv-task">テスト</div>
-        </div>
-        <div class="hv-sprint now" style="--i:3">
-          <div class="hv-label">Sprint 04<em>Now</em></div>
-          <div class="hv-task is-done">リリース</div>
-          <div class="hv-task is-doing">振り返り</div>
-        </div>
-        <div class="hv-sprint next" style="--i:4">
-          <div class="hv-label">Sprint 05</div>
-          <div class="hv-task">改善</div>
-          <div class="hv-task">計測</div>
-        </div>
-        <div class="hv-sprint next" style="--i:5">
-          <div class="hv-label">Sprint 06</div>
-          <div class="hv-task">次の一手</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
