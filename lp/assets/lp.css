@@ -319,7 +319,6 @@ img { max-width: 100%; display: block; }
 .plan-person.is-eng { background: var(--ink-4); }
 .plan-role { font-size: 11px; line-height: 1.2; color: var(--ink-3); letter-spacing: 0.02em; }
 .plan-plus { font-size: 16px; line-height: 30px; color: var(--ink-4); align-self: flex-start; }
-.plan-crew { display: block; margin-top: 2px; font-size: 13px; color: var(--ink-3); }
 .plan ul { list-style: none; font-size: 14px; display: grid; gap: 8px; flex-grow: 1; }
 .plan li { padding-left: 1.4em; position: relative; }
 .plan li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
