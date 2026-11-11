@@ -13,3 +13,7 @@
 # ルートとサブディレクトリのindex.html
 /
   Cache-Control: public, max-age=300, must-revalidate
+
+# テスト用LP：検索エンジンに載せない
+/lp/kaizen/*
+  X-Robots-Tag: noindex, nofollow

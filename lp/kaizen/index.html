@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>その業務、本当にいる？ | サボり上手で真面目なエンジニアが業務をカット | 小さく進めて大きく変える合同会社</title>
+<meta name="description" content="サボり上手で、真面目なエンジニアが、御社の業務を整理してカット・自動化します。浮いた時間を売上をつくる仕事へ、人を増やさず回る仕組みで粗利を残す。月20万円から。今の状態や悩みを話すだけでもOKです。">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="その業務、本当にいる？">
+<meta property="og:description" content="サボり上手で、真面目なエンジニアが、御社の業務を整理してカットします。月20万円から。">
+<meta property="og:url" content="https://chiikaru.co.jp/lp/kaizen/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lp.css">
+<style>
+  /* ---- このLPだけの部品 ---- */
+
+  /* ファーストビュー（ブランド強め） */
+  .hero-brand { padding: 0 0 80px; }
+  .tag-marquee { overflow: hidden; border-bottom: 1px solid rgba(255,255,255,.12); margin-bottom: 64px; }
+  .tag-track { display: inline-flex; gap: 28px; white-space: nowrap; padding: 12px 0; font-family: "IBM Plex Mono", "IBM Plex Sans JP", monospace; font-size: 13px; color: rgba(255,255,255,.55); animation: tag-marquee 50s linear infinite; }
+  @keyframes tag-marquee { to { transform: translateX(-50%); } }
+  .brand-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
+  .callout { font-size: 16px; font-weight: 600; color: #CFE3D8; margin-bottom: 12px; }
+  .hero .brand-h1 { font-size: clamp(48px, 6.6vw, 92px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 28px; }
+  .brand-lock { font-size: clamp(21px, 2.5vw, 30px); font-weight: 700; line-height: 1.55; color: #fff; margin-bottom: 28px; }
+  .gains { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
+  .gain-card { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.06); padding: 18px 20px; }
+  .gain-k { display: inline-block; font-size: 14px; font-weight: 700; color: var(--accent-deep); background: #8FD1AE; padding: 2px 10px; margin-bottom: 8px; }
+  .gain-card p { font-size: 16.5px; line-height: 1.7; color: rgba(255,255,255,.88); }
+  .gain-card b { color: #fff; }
+  .brand-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+  .hero-dark .brand-cta .btn { background: #fff; color: var(--accent-deep); border-color: #fff; }
+  .hero-dark .brand-cta .btn:hover { background: var(--accent-soft); }
+  .brand-price .value { display: block; font-size: 20px; font-weight: 700; line-height: 1.2; color: #fff; }
+  .brand-price b { font-size: 44px; color: #8FD1AE; margin: 0 2px; letter-spacing: -0.02em; }
+  .brand-price .note { display: block; margin-top: 4px; font-size: 13px; color: rgba(255,255,255,.65); }
+
+  /* 業務の棚卸し表（イメージ） */
+  .tanaoroshi { background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.16); }
+  .tn-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,.12); }
+  .tn-bar span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.25); }
+  .tn-bar em { font-style: normal; margin-left: 8px; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: rgba(255,255,255,.6); }
+  .tn-cmd { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: #8FD1AE; padding: 14px 20px 4px; }
+  .tn-list { list-style: none; padding: 4px 20px 0; }
+  .tn-list li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px dashed rgba(255,255,255,.14); font-size: 15px; animation: tn-in .5s ease both; }
+  .tn-list li:nth-child(1) { animation-delay: .3s; } .tn-list li:nth-child(2) { animation-delay: .6s; }
+  .tn-list li:nth-child(3) { animation-delay: .9s; } .tn-list li:nth-child(4) { animation-delay: 1.2s; }
+  .tn-list li:nth-child(5) { animation-delay: 1.5s; } .tn-list li:nth-child(6) { animation-delay: 1.9s; }
+  @keyframes tn-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .tn-list .is-cut .t { color: rgba(255,255,255,.5); text-decoration: line-through; text-decoration-color: rgba(143,209,174,.8); }
+  .tn-list .is-keep .t { color: #fff; font-weight: 700; }
+  .tn-tag { flex-shrink: 0; font-size: 12px; font-weight: 700; padding: 2px 8px; }
+  .tn-tag.auto { background: #8FD1AE; color: var(--accent-deep); }
+  .tn-tag.cut { background: rgba(255,255,255,.14); color: #fff; }
+  .tn-tag.keep { background: #fff; color: var(--accent-deep); }
+  .tn-result { margin: 16px 20px 0; padding: 14px 16px; background: rgba(143,209,174,.14); color: #fff; font-size: 16px; font-weight: 600; }
+  .tn-result b { color: #8FD1AE; }
+  .tn-note { padding: 8px 20px 14px; font-size: 11.5px; color: rgba(255,255,255,.45); }
+  @media (prefers-reduced-motion: reduce) {
+    .tag-track, .tn-list li { animation: none; }
+  }
+  @media (max-width: 900px) {
+    .tag-marquee { margin-bottom: 40px; }
+    .brand-grid { grid-template-columns: 1fr; gap: 40px; }
+    .brand-cta .btn { width: 100%; }
+  }
+  @media (max-width: 560px) {
+    .gains { grid-template-columns: 1fr; }
+    .callout { font-size: 14px; }
+    .tn-list li { font-size: 14px; }
+  }
+
+  /* 事例の上の実績の数字 */
+  .cases-proof { margin: 0 0 20px; }
+
+  /* お悩み：悩みの連鎖 */
+  .chain { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 32px; margin-top: 32px; }
+  .chain li { position: relative; background: var(--accent-soft); color: var(--accent-deep); font-weight: 600; font-size: 14.5px; padding: 8px 16px; }
+  .chain li + li::before { content: "→"; position: absolute; left: -24px; top: 50%; transform: translateY(-50%); color: var(--ink-4); font-weight: 400; }
+  @media (max-width: 720px) {
+    .chain { flex-direction: column; align-items: flex-start; gap: 26px; }
+    .chain li + li::before { content: "↓"; left: 16px; top: -26px; transform: none; line-height: 26px; }
+  }
+
+  /* WHO */
+  .who-text p { color: var(--ink-2); margin-top: 16px; }
+  .who-text .who-punch { font-size: 20px; font-weight: 700; color: var(--accent); margin-top: 24px; }
+
+  /* 5つの約束 */
+  .promises { display: grid; gap: 16px; }
+  .promise { display: grid; grid-template-columns: 1fr 1.25fr; background: var(--bg-card); border: 1px solid var(--rule); }
+  .promise-head { padding: 28px 32px; border-right: 1px solid var(--rule-soft); }
+  .promise-num { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.1em; color: var(--accent); }
+  .promise-head h3 { font-size: 19px; line-height: 1.55; margin-top: 6px; }
+  .promise-body { padding: 28px 32px; }
+  .promise-so { font-size: 13px; font-weight: 600; color: var(--accent); }
+  .promise-body .gain { font-size: 17px; font-weight: 700; line-height: 1.6; margin-top: 2px; }
+  .promise-body p { font-size: 14.5px; color: var(--ink-2); margin-top: 8px; }
+  .promise-proof { display: inline-block; margin-top: 12px; font-size: 12.5px; color: var(--ink-3); background: var(--bg-soft); padding: 4px 10px; }
+  @media (max-width: 720px) {
+    .promise { grid-template-columns: 1fr; }
+    .promise-head { border-right: none; border-bottom: 1px solid var(--rule-soft); padding: 22px 20px; }
+    .promise-body { padding: 20px; }
+  }
+
+  /* 事例：ストーリーの一言 */
+  .case-quote { margin-top: 14px; padding-left: 14px; border-left: 3px solid var(--accent-line); font-size: 14.5px; font-weight: 600; color: var(--ink-2); }
+
+  /* 進め方：サイクル図 */
+  .cycle-head { font-size: 20px; margin: 64px 0 24px; }
+  .cycle-wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+  .cycle-svg { width: 100%; height: auto; display: block; }
+  .cycle-list { display: none; }
+  .cycle-list ol { list-style: none; counter-reset: cyc; }
+  .cycle-list li { counter-increment: cyc; background: var(--bg-card); border: 1px solid var(--rule); padding: 14px 18px 14px 52px; position: relative; margin-bottom: 8px; }
+  .cycle-list li::before { content: counter(cyc); position: absolute; left: 18px; top: 14px; font-weight: 700; color: var(--accent); }
+  .cycle-list li.is-key { background: var(--accent-deep); color: #fff; border-color: var(--accent-deep); }
+  .cycle-list li.is-key::before { color: #8FD1AE; }
+  .cycle-list strong { display: block; }
+  .cycle-list span { font-size: 13.5px; opacity: .85; }
+  .cycle-loop { font-size: 13.5px; font-weight: 600; color: var(--accent); }
+  .cycle-panel { background: var(--accent-soft); padding: 28px; }
+  .cycle-panel h4 { font-size: 17px; margin-bottom: 14px; }
+  .cycle-panel dl { display: grid; gap: 10px; }
+  .cycle-panel dl > div { background: var(--bg-card); padding: 14px 18px; }
+  .cycle-panel dt { font-weight: 700; color: var(--accent); font-size: 14.5px; }
+  .cycle-panel dd { font-size: 13.5px; color: var(--ink-2); }
+  .cycle-panel .bind { margin-top: 18px; font-weight: 700; }
+  .flow-note { margin-top: 20px; font-size: 14.5px; color: var(--ink-2); }
+  @media (max-width: 900px) { .cycle-wrap { grid-template-columns: 1fr; gap: 24px; } }
+  @media (max-width: 720px) {
+    .cycle-svg { display: none; }
+    .cycle-list { display: block; }
+  }
+
+  /* 料金：サイクルの回る数 */
+  .plan-cycle { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .plan-cycle svg { width: 36px; height: 36px; flex-shrink: 0; }
+  .plan-cycle span { font-size: 12px; color: var(--ink-3); line-height: 1.3; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="/" class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-name">
+        小さく進めて大きく変える 合同会社
+        <span class="en">Chiisaku Susumete Ookiku Kaeru, LLC.</span>
+      </div>
+    </a>
+    <a href="#contact" class="btn">無料で相談する <span class="arrow">→</span></a>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== ファーストビュー ===== -->
+<section class="hero hero-dark hero-brand">
+  <div class="tag-marquee" aria-hidden="true">
+    <div class="tag-track">
+      <span>#業務の棚卸し</span><span>#ムダな業務のカット</span><span>#業務の自動化</span><span>#スプレッドシート自動入力</span><span>#データの自動集計</span><span>#AI導入</span><span>#ペーパーレス</span><span>#社内システムの改善</span><span>#内製化</span><span>#集客・マーケティング</span>
+      <span>#業務の棚卸し</span><span>#ムダな業務のカット</span><span>#業務の自動化</span><span>#スプレッドシート自動入力</span><span>#データの自動集計</span><span>#AI導入</span><span>#ペーパーレス</span><span>#社内システムの改善</span><span>#内製化</span><span>#集客・マーケティング</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="brand-grid">
+      <div class="brand-main">
+        <p class="callout">＼ <span class="nw">人手が足りないと感じている、</span><span class="nw">すべての社長へ</span> ／</p>
+        <h1 class="brand-h1"><span class="nw">その業務、</span><br><em class="nw">本当にいる？</em></h1>
+        <p class="brand-lock"><span class="nw">サボり上手で、</span><span class="nw">真面目なエンジニアが、</span><br><span class="nw">御社の業務を整理して、</span><span class="nw">カットします。</span></p>
+        <div class="gains">
+          <div class="gain-card"><span class="gain-k">時間をつくる</span><p>ムダな業務をカット・自動化して、<span class="nw">浮いた時間を</span><b class="nw">売上をつくる仕事</b>へ。</p></div>
+          <div class="gain-card"><span class="gain-k">粗利を残す</span><p><span class="nw">人を増やさなくても</span><span class="nw">回る仕組みにして、</span><b class="nw">利益が残る</b>会社へ。</p></div>
+        </div>
+        <div class="brand-cta">
+          <a href="#contact" class="btn btn-lg">無料で相談する <span class="arrow">→</span></a>
+          <div class="brand-price">
+            <span class="value">月<b>20</b>万円から</span>
+            <span class="note">税別｜今の状態や悩みを話すだけでもOK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tanaoroshi" role="img" aria-label="業務の棚卸しのイメージ。集計や転記などの業務を自動化・カットして、お客様への提案に集中する">
+        <div class="tn-bar" aria-hidden="true"><span></span><span></span><span></span><em>gyomu_tanaoroshi.csv</em></div>
+        <div class="tn-cmd" aria-hidden="true">$ sabori --cut</div>
+        <ul class="tn-list" aria-hidden="true">
+          <li class="is-cut"><span class="t">毎月の売上集計（手作業）</span><span class="tn-tag auto">自動化</span></li>
+          <li class="is-cut"><span class="t">スプレッドシートへの転記</span><span class="tn-tag cut">カット</span></li>
+          <li class="is-cut"><span class="t">同じ内容の問い合わせ返信</span><span class="tn-tag auto">テンプレ化</span></li>
+          <li class="is-cut"><span class="t">紙の書類の回覧・保管</span><span class="tn-tag cut">ペーパーレス</span></li>
+          <li class="is-cut"><span class="t">お客様の住所変更の代行</span><span class="tn-tag auto">お客様自身で</span></li>
+          <li class="is-keep"><span class="t">お客様への提案・相談対応</span><span class="tn-tag keep">ここに集中</span></li>
+        </ul>
+        <div class="tn-result" aria-hidden="true">浮いた時間 → <b>売上をつくる仕事</b>へ</div>
+        <p class="tn-note" aria-hidden="true">※イメージです</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== お悩み ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Problem</div>
+      <h2 class="section-title">その業務、<br>こんな形で残っていませんか。</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain">毎月の集計を、誰かが手作業でやっている</div>
+      <div class="pain">同じ内容を、何度もスプレッドシートに転記している</div>
+      <div class="pain">専門スタッフが、本業より事務作業に時間を取られている</div>
+      <div class="pain">外注先に頼んでも、システムの修正がなかなか進まない</div>
+      <div class="pain">使いづらいけど、もう慣れるしかないと思っている</div>
+      <div class="pain">広告は出しているのに、欲しい数字が出てこない</div>
+    </div>
+    <ol class="chain" aria-label="ムダな業務が残ったときの流れ">
+      <li>ムダな業務が残る</li>
+      <li>人が足りない</li>
+      <li>人を増やす</li>
+      <li>粗利が減る</li>
+    </ol>
+    <p class="pain-close">人を増やす前に、<em>なくせる業務がないか</em>を一緒に見てみませんか。<br>その不便、慣れなくていいんです。</p>
+  </div>
+</section>
+
+<!-- ===== WHO ===== -->
+<section class="section soft">
+  <div class="container">
+    <div class="team">
+      <div class="who-text">
+        <div class="section-label">Who we are</div>
+        <h2 class="section-title">私たちは、<br><span class="nw">サボり上手の</span><span class="nw">エンジニアチームです。</span></h2>
+        <p>同じ作業を2回やるのが嫌い。<br>自分がいないと回らない仕組みも嫌い。</p>
+        <p>だから、どの現場でも最後に残してきたのは「自分たちがいなくても回る状態」でした。</p>
+        <p>そして、自分がサボる人間だと知っているから、サボれない仕組みを先に作ります。<br>決まった間隔で必ず振り返り、次にやることを一緒に決める。<br>効果が分かる状態にして、改善を回す仕組みを作る。<br>真面目さを、気合いではなく仕組みで約束します。</p>
+        <p class="who-punch">サボりたいから、ちゃんとやる。</p>
+      </div>
+      <ul class="team-list">
+        <li><strong>代表・川島 健吾</strong><span>元メガベンチャーのPM。業務システムの改善から集客まで、上流から現場まで担当</span></li>
+        <li><strong>エンジニア</strong><span>事業売却の経験があるエンジニアを含む、少数精鋭のメンバーで対応</span></li>
+        <li><strong>開発もマーケも</strong><span>システム開発、AI導入、業務の自動化、集客・マーケティングまで</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5つの約束 ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Our promise</div>
+      <h2 class="section-title">サボり上手だから守れる、<br>5つの約束</h2>
+      <p class="section-desc">どれも、ITの業者に一度困らされた方から伺った話の裏返しです。</p>
+    </div>
+    <div class="promises">
+      <article class="promise">
+        <div class="promise-head">
+          <div class="promise-num">PROMISE 01</div>
+          <h3>サボり上手は、自分がいないと回らない状態に耐えられない</h3>
+        </div>
+        <div class="promise-body">
+          <div class="promise-so">だから</div>
+          <p class="gain">御社が自分で触れる形で渡します。最後は社内で回せる状態に。</p>
+          <p>仕組みも説明も残します。外注先に頼まないと何も変えられない、という状態から抜け出せます。</p>
+          <span class="promise-proof">実績：外部に頼んでいた開発が不要になり、内製化を実現</span>
+        </div>
+      </article>
+      <article class="promise">
+        <div class="promise-head">
+          <div class="promise-num">PROMISE 02</div>
+          <h3>サボり上手は、自分がサボることを知っている</h3>
+        </div>
+        <div class="promise-body">
+          <div class="promise-so">だから</div>
+          <p class="gain">サボれない仕組みを、先に作ります。</p>
+          <p>月1回から毎週まで、決まったサイクルで必ず振り返り、次にやることを一緒に決めます。連絡が途絶えることはありません。</p>
+        </div>
+      </article>
+      <article class="promise">
+        <div class="promise-head">
+          <div class="promise-num">PROMISE 03</div>
+          <h3>サボり上手は、使われないものを作るのが一番嫌い</h3>
+        </div>
+        <div class="promise-body">
+          <div class="promise-so">だから</div>
+          <p class="gain">いきなり作りません。業務を洗い出してから、使われるものだけを作ります。</p>
+          <p>「とりあえずAIを入れる」ようなことはしません。現場の声を聞いて、優先順位をつけてから手をつけます。</p>
+          <span class="promise-proof">実績：使いづらくなった業務システムを、優先順位をつけて改善し工数半減</span>
+        </div>
+      </article>
+      <article class="promise">
+        <div class="promise-head">
+          <div class="promise-num">PROMISE 04</div>
+          <h3>サボり上手は、手作業で高く作りたくない</h3>
+        </div>
+        <div class="promise-body">
+          <div class="promise-so">だから</div>
+          <p class="gain">AIを使って開発し、費用を抑えます。</p>
+          <p>AIは売りつけるものではなく、安く速く作るための道具。大きなシステムを最初から作らず、効果が出たところから広げます。</p>
+        </div>
+      </article>
+      <article class="promise">
+        <div class="promise-head">
+          <div class="promise-num">PROMISE 05</div>
+          <h3>サボり上手は、勘で決める会議を何度もしたくない</h3>
+        </div>
+        <div class="promise-body">
+          <div class="promise-so">だから</div>
+          <p class="gain">やったことと、その効果を、数字と言葉で見える化します。</p>
+          <p>作業時間がどれだけ減ったか、広告や問い合わせの数字がどう動いたかを測って、毎回お見せします。集計のための残業がなくなった、会議で数字を見て話せるようになった、といった数字に出にくい変化も言葉にして残します。その結果をもとに、次の改善やマーケティングの打ち手を一緒に決めます。</p>
+          <span class="promise-proof">実績：成果の出なかった集客を、改善を回し続けてリード3倍に</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 事例 ===== -->
+<section class="section soft">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Case studies</div>
+      <h2 class="section-title">支援事例</h2>
+    </div>
+    <div class="proof cases-proof">
+      <div class="proof-item"><div class="proof-num">外注ゼロ</div><div class="proof-desc">外部に頼んでいた開発を、社内で回せる体制に</div></div>
+      <div class="proof-item"><div class="proof-num">工数半減</div><div class="proof-desc">使いづらくなった業務システムを1年で立て直し</div></div>
+      <div class="proof-item"><div class="proof-num">リード3<small>倍</small></div><div class="proof-desc">成果の出なかった集客を、改善を回し続けて</div></div>
+    </div>
+    <div class="cases">
+      <article class="case">
+        <div class="case-result">
+          <div class="num">改善が<br>回り出した</div>
+          <div class="sub">現場のスタッフから、自発的に改善案が出るように</div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">専門スタッフを抱えるオンライン事業者様（社員20〜30名）｜社内システムの改善と数字の見える化｜約1年</div>
+          <h3>外注先での修正が進まなかった社内システムを、業務と数字の両面から立て直し</h3>
+          <div class="case-rows">
+            <div class="case-row"><span class="k">課題</span><span>外注先に頼んでもシステムの修正がうまく進まず、専門スタッフが事務作業や集計に追われていた。経営陣も、営業や広告に使う数字や、経営判断に必要な数字が取れていなかった</span></div>
+            <div class="case-row"><span class="k">対応</span><span>システムを一通り拝見して課題を洗い出し、現場の声を聞きながら優先順位をつけて改善。お客様自身で手続きできる仕組みや、顧客の分類ごとに配信できる仕組みを整えた</span></div>
+            <div class="case-row"><span class="k">成果</span><span>止まっていた改善が続くようになり、現場のスタッフから自発的に改善の要望が上がるようになった</span></div>
+          </div>
+          <p class="case-quote">いちばん喜ばれたのは、「相談できる人がいる」ことそのものでした。</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-result">
+          <div class="num">自社で<br>更新できる</div>
+          <div class="sub">ホームページを作り直し、集客の改善まで</div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">BtoBメーカー様｜ホームページの作り直しと集客</div>
+          <h3>費用を払ったのに更新できなかったホームページを、自社で触れる形に</h3>
+          <div class="case-rows">
+            <div class="case-row"><span class="k">課題</span><span>以前の業者に費用を払ったものの、できあがったのは自社では更新できないホームページだった</span></div>
+            <div class="case-row"><span class="k">対応</span><span>自社で更新できる形でホームページを作り直し、LPの広告運用を開始。月1回、目標を立てて改善するサイクルを回した</span></div>
+            <div class="case-row"><span class="k">成果</span><span>ホームページを自社で更新できるようになり、広告からの集客を改善し続けられる状態に</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-result">
+          <div class="num">工数半減</div>
+          <div class="sub">1年で作業効率が50%改善</div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">業務システム（CRM）の改善｜1年</div>
+          <h3>複雑になりすぎて、使いづらいまま我慢していた業務システムを立て直し</h3>
+          <div class="case-rows">
+            <div class="case-row"><span class="k">課題</span><span>システムが肥大化して作業が難しくなり、担当者の残業が当たり前になっていた</span></div>
+            <div class="case-row"><span class="k">対応</span><span>業務フローとシステムの課題を洗い出し、優先順位をつけて順に改善</span></div>
+            <div class="case-row"><span class="k">成果</span><span>1年間で作業者の工数を約半減。システム由来の業務ミスも0に</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 進め方 ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">How we work</div>
+      <h2 class="section-title">ご相談から、<br>改善が回り出すまで</h2>
+    </div>
+    <ol class="flow">
+      <li><h3>無料相談</h3><p>今の状態や悩みを伺います。相談だけでもOKです。</p></li>
+      <li><h3>業務分解・課題の言語化</h3><p>所有しているシステムやホームページを確認した上で、課題の棚卸しをさせていただきます。</p></li>
+      <li><h3>ロードマップ</h3><p>何から、どの順番で進めるかをまとめた改善のロードマップをお作りします。</p></li>
+      <li><h3>サイクル開始</h3><p>決めた順番どおりに、改善のサイクルを回し始めます。</p></li>
+    </ol>
+    <p class="flow-note">専門用語は使いません。「ここが面倒」「この数字が欲しい」と、思ったままの言葉でお伝えください。ITの言葉に直すのは私たちの仕事です。</p>
+
+    <h3 class="cycle-head">プロジェクト開始後のサイクル</h3>
+    <div class="cycle-wrap">
+      <svg class="cycle-svg" viewBox="0 0 760 640" role="img" aria-label="改善のサイクル。1 調査、2 優先度調整、3 開発、4 リリースをくり返す">
+        <circle cx="380" cy="320" r="220" fill="none" stroke="#B7C9C0" stroke-width="6"/>
+        <g fill="#1F4E3D">
+          <path d="M16 0 L-11 -13 L-11 13 Z" transform="translate(224.4 164.4) rotate(135)"/>
+          <path d="M16 0 L-11 -13 L-11 13 Z" transform="translate(224.4 475.6) rotate(45)"/>
+          <path d="M16 0 L-11 -13 L-11 13 Z" transform="translate(535.6 475.6) rotate(-45)"/>
+          <path d="M16 0 L-11 -13 L-11 13 Z" transform="translate(535.6 164.4) rotate(-135)"/>
+        </g>
+        <text x="380" y="306" text-anchor="middle" font-size="18" fill="#5C5C58">くり返し回す</text>
+        <text x="380" y="348" text-anchor="middle" font-size="24" font-weight="700" fill="#1F4E3D">月1回〜毎週</text>
+
+        <rect x="235" y="48" width="290" height="104" fill="#FFFFFF" stroke="#B7C9C0" stroke-width="2"/>
+        <text x="259" y="90" font-size="26" font-weight="700" fill="#0E0E0C"><tspan fill="#1F4E3D">1</tspan>　調査</text>
+        <text x="259" y="126" font-size="17" fill="#5C5C58">困りごとを優先度順に調べる</text>
+
+        <rect x="30" y="266" width="260" height="114" fill="#133A2C"/>
+        <text x="54" y="308" font-size="26" font-weight="700" fill="#FFFFFF"><tspan fill="#8FD1AE">2</tspan>　優先度調整</text>
+        <text x="54" y="340" font-size="17" fill="#D6E4DC">定例で、次に作るものと</text>
+        <text x="54" y="363" font-size="17" fill="#D6E4DC">調べるものを決める</text>
+
+        <rect x="235" y="488" width="290" height="104" fill="#FFFFFF" stroke="#B7C9C0" stroke-width="2"/>
+        <text x="259" y="530" font-size="26" font-weight="700" fill="#0E0E0C"><tspan fill="#1F4E3D">3</tspan>　開発</text>
+        <text x="259" y="566" font-size="17" fill="#5C5C58">AIも使って、小さく安く作る</text>
+
+        <rect x="475" y="266" width="250" height="114" fill="#FFFFFF" stroke="#B7C9C0" stroke-width="2"/>
+        <text x="499" y="308" font-size="26" font-weight="700" fill="#0E0E0C"><tspan fill="#1F4E3D">4</tspan>　リリース</text>
+        <text x="499" y="340" font-size="17" fill="#5C5C58">現場で使ってもらい</text>
+        <text x="499" y="363" font-size="17" fill="#5C5C58">感想を次の調査へ</text>
+      </svg>
+      <div class="cycle-list">
+        <ol>
+          <li><strong>調査</strong><span>困りごとを優先度順に調べる</span></li>
+          <li class="is-key"><strong>優先度調整</strong><span>定例で、次に作るものと調べるものを決める</span></li>
+          <li><strong>開発</strong><span>AIも使って、小さく安く作る</span></li>
+          <li><strong>リリース</strong><span>現場で使ってもらい、感想を次の調査へ</span></li>
+        </ol>
+        <p class="cycle-loop">↻ 4のあとは、また1へ。月1回〜毎週くり返します</p>
+      </div>
+      <div class="cycle-panel">
+        <h4><span class="nw">取りかかる前に、</span><span class="nw">必ずお見せすること</span></h4>
+        <dl>
+          <div><dt>やった後、どう変わるか</dt><dd>数字で見える変化（例：毎月の集計がほぼゼロに）と、現場で感じる変化（例：お客様対応に時間を使える）の両方</dd></div>
+          <div><dt>どのくらいかかるか</dt><dd>対応にかかる時間の目安。見比べて、やる順番を一緒に決めます</dd></div>
+        </dl>
+        <p class="bind"><span class="nw">サボり上手なので、</span><span class="nw">サイクルで自分たちを縛っています。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 料金 ===== -->
+<section class="section soft" id="price">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-desc">料金は、改善のサイクルを回す回数で決まります。社内でIT担当を1人採用するより小さく始められて、辞められる心配もありません。</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>月1回</h3>
+        <p class="plan-for">まずは小さく試したい</p>
+        <div class="plan-price">
+          <div class="plan-cycle" role="img" aria-label="サイクルを月に1回まわす">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="none" stroke="#B7C9C0" stroke-width="3"/><circle cx="20" cy="6" r="4" fill="#1F4E3D"/></svg>
+            <span>サイクルを<br>月に1回</span>
+          </div>
+          <span class="yen">20万円</span><span class="unit">／月</span>
+        </div>
+        <ul>
+          <li>月1回の定例</li>
+          <li>困りごとの調査と優先順位づけ</li>
+          <li>改善の実施</li>
+          <li>ロードマップの見直し</li>
+        </ul>
+      </div>
+      <div class="plan featured">
+        <span class="plan-badge">おすすめ</span>
+        <h3>2週間に1回</h3>
+        <p class="plan-for">改善をテンポよく進めたい</p>
+        <div class="plan-price">
+          <div class="plan-cycle" role="img" aria-label="サイクルを月に2回まわす">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="none" stroke="#B7C9C0" stroke-width="3"/><circle cx="20" cy="6" r="4" fill="#1F4E3D"/><circle cx="20" cy="34" r="4" fill="#1F4E3D"/></svg>
+            <span>サイクルを<br>月に2回</span>
+          </div>
+          <span class="yen">40万円</span><span class="unit">／月</span>
+        </div>
+        <ul>
+          <li>2週間に1回の定例</li>
+          <li>月1回プランの内容を、2倍のテンポで</li>
+          <li>集客・マーケティングの相談も</li>
+        </ul>
+        <p class="plan-foot">改善が目に見えて進むペースです。迷ったらこちらをおすすめしています。</p>
+      </div>
+      <div class="plan">
+        <h3>毎週</h3>
+        <p class="plan-for">一気に立て直したい</p>
+        <div class="plan-price">
+          <div class="plan-cycle" role="img" aria-label="サイクルを月に4回まわす">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="none" stroke="#B7C9C0" stroke-width="3"/><circle cx="20" cy="6" r="4" fill="#1F4E3D"/><circle cx="34" cy="20" r="4" fill="#1F4E3D"/><circle cx="20" cy="34" r="4" fill="#1F4E3D"/><circle cx="6" cy="20" r="4" fill="#1F4E3D"/></svg>
+            <span>サイクルを<br>月に4回</span>
+          </div>
+          <span class="yen">70万円</span><span class="unit">／月</span>
+        </div>
+        <ul>
+          <li>毎週の定例</li>
+          <li>月1回プランの内容を、4倍のテンポで</li>
+          <li>集客・マーケティングの相談も</li>
+        </ul>
+        <p class="plan-foot">月4回分（80万円）より、10万円おさえた料金です。</p>
+      </div>
+    </div>
+    <ul class="plan-notes">
+      <li>※表示はすべて税別の月額です。</li>
+      <li>※最低契約期間は3か月です。まずは3か月サイクルを回してみて、続けるかどうかを決めていただけます。</li>
+      <li>※開発の量が多くなりそうなときは、サイクルの頻度や進め方を一緒に見直します。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 予約 ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">まずは、今の状態を<br>聞かせてください</h2>
+      <p class="section-desc">今の状態や悩みを相談していただくだけでもOKです。ご希望があれば、改善のためのロードマップをお作りします。下のカレンダーから、ご都合のよい日時をお選びください。</p>
+    </div>
+    <div class="contact-box">
+      <!-- Begin TimeRex Widget -->
+      <div id="timerex_calendar" data-url="https://timerex.net/s/k.fifty.1110_2dd1/72e79cc3"></div>
+      <script id="timerex_embed" src="https://asset.timerex.net/js/embed.js"></script>
+      <script type="text/javascript">
+        TimerexCalendar();
+      </script>
+      <!-- End TimeRex Widget -->
+    </div>
+    <p class="contact-alt">
+      ご都合の合う日程がない場合は、メールでも結構です。<br>
+      メール：<a href="mailto:info@chiikaru.co.jp">info@chiikaru.co.jp</a>（川島宛）
+    </p>
+
+    <div class="contact-faq">
+      <h3>よくあるご質問</h3>
+      <div class="faq">
+        <details>
+          <summary>他社が作ったシステムやホームページでも見てもらえますか？</summary>
+          <p class="answer">はい。他社が作ったものでも、一通り見させていただいたうえで、何から手をつけるべきかを整理します。</p>
+        </details>
+        <details>
+          <summary>マーケティングだけ頼むこともできますか？</summary>
+          <p class="answer">はい、可能です。集客の数字の取り方から、広告やホームページの改善まで、マーケティングだけのご相談も承ります。</p>
+        </details>
+        <details>
+          <summary>無料相談のあとは、どうなりますか？</summary>
+          <p class="answer">伺った内容をもとに、何から、どの順番で進めるかをまとめた改善のロードマップをお作りします。それを見てから、ご依頼いただくかどうかを決めていただけます。</p>
+        </details>
+        <details>
+          <summary>ITに詳しくなくても大丈夫ですか？</summary>
+          <p class="answer">はい。専門用語は使わずにお話しします。「ここが面倒」「この数字が欲しい」と、思ったままの言葉でお伝えください。</p>
+        </details>
+        <details>
+          <summary>小さく始めることはできますか？</summary>
+          <p class="answer">はい。月1回のプラン（月20万円）から始められます。回り始めてから、2週間に1回や毎週に変えることもできます。</p>
+        </details>
+        <details>
+          <summary>契約期間の決まりはありますか？</summary>
+          <p class="answer">最低契約期間は3か月です。まずは3か月サイクルを回してみて、続けるかどうかを決めていただけます。</p>
+        </details>
+        <details>
+          <summary>無料相談のあと、必ず契約が必要ですか？</summary>
+          <p class="answer">いいえ。無料相談だけで終えていただいても費用はかかりません。</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-name">小さく進めて大きく変える 合同会社</div>
+      <div class="footer-en">Chiisaku Susumete Ookiku Kaeru, LLC.</div>
+      <div>代表：川島 健吾 ／ 設立：2024年12月</div>
+    </div>
+    <div>© 2025 Chiisaku Susumete Ookiku Kaeru, LLC.</div>
+  </div>
+</footer>
+
+</body>
+</html>
